@@ -132,4 +132,32 @@ extension URLSession {
 
 
 
+//MARK: Saving data to the disk.
+extension Listing {
+    
+
+    static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let archiveURL = documentsDirectory.appendingPathComponent("listing").appendingPathExtension("plist")
+    
+    
+    static func saveToFile(list: [Listing]) {
+        
+        let propertyListEncoder = PropertyListEncoder()
+        let encodedList = try? propertyListEncoder.encode(list)
+        try? encodedList?.write(to: Listing.archiveURL, options: .noFileProtection)
+    }
+    
+    
+    static func loadFromFile() -> [Listing]? {
+        
+        guard let codedListings = try? Data(contentsOf: archiveURL) else { return nil }
+        let decoder = PropertyListDecoder()
+        return try? decoder.decode(Array<Listing>.self, from: codedListings)
+    }
+}
+
+
+
+
+
 
