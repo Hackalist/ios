@@ -19,13 +19,32 @@ class NetworkController {
     
     //MARK: Base URL
     
-    let baseURL = URL(string: "https://github.com/Hackalist/Hackalist.github.io/blob/master/api/1.0/2018/07.json")!
+    
+    //base url with sample req : /2018/07.json
+    let baseURL = URL(string: "https://raw.githubusercontent.com/Hackalist/Hackalist.github.io/master/api/1.0")!
     
     
+    
+    /*
+    //I think I need only one method, which will parse all the months available for the current year, and display all available hackatons, setting the user
+     to see the current, most nearest date for the available hackaton. The logic for the network will be written here, and the date and other stuff would be
+     sent from the viewcontroller, or model, since it is going to persist. Since the date should be available everywhere, I guess I will write it in a model, as a singleton.
+ */
+    
+    
+    
+    /*
     let query: [String: String] = [
         "year" : "2018",
         "month": "07.json"
     ]
+    
+    */
+    
+    
+    
+    
+    
     
     
     /*

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		26C6E70612AF65267D5CA6AB /* Pods_Hackalist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE5FB5E8078D8FB0CB4EB1C /* Pods_Hackalist.framework */; };
+		E228AC3D20DE517D0004BBA8 /* DateTon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E228AC3C20DE517D0004BBA8 /* DateTon.swift */; };
 		E27C818420DD0CBE00CDBC60 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E27C818320DD0CBE00CDBC60 /* GoogleService-Info.plist */; };
 		E27C818620DD15F500CDBC60 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27C818520DD15F500CDBC60 /* NetworkController.swift */; };
 		E27C818820DD1E7400CDBC60 /* extensionURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27C818720DD1E7400CDBC60 /* extensionURL.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		85E900DE0C7D1CE5868A333C /* Pods-Hackalist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackalist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hackalist/Pods-Hackalist.debug.xcconfig"; sourceTree = "<group>"; };
 		9BABB898CC274612263ACB3D /* Pods-Hackalist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackalist.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hackalist/Pods-Hackalist.release.xcconfig"; sourceTree = "<group>"; };
+		E228AC3C20DE517D0004BBA8 /* DateTon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTon.swift; sourceTree = "<group>"; };
 		E27C818320DD0CBE00CDBC60 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E27C818520DD15F500CDBC60 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		E27C818720DD1E7400CDBC60 /* extensionURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionURL.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				E2F840B620DCF6E200423D88 /* Listing.swift */,
+				E228AC3C20DE517D0004BBA8 /* DateTon.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				E2F8409F20DCEB6E00423D88 /* AppDelegate.swift in Sources */,
 				E2F840B720DCF6E200423D88 /* Listing.swift in Sources */,
 				E2F840BE20DD05B800423D88 /* ProfileViewController.swift in Sources */,
+				E228AC3D20DE517D0004BBA8 /* DateTon.swift in Sources */,
 				E2F840C020DD05CA00423D88 /* DetailViewController.swift in Sources */,
 				E2F840C220DD073600423D88 /* PropertyKeys.swift in Sources */,
 				E2F840BA20DD057E00423D88 /* SearchTableViewController.swift in Sources */,

@@ -20,13 +20,14 @@ class SearchTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
        
-        
-
+/*
         //here goes the network code.
         NetworkController.shared.fetchHackatonList(query: "") { (listing) in
             print(listing)
         }
+        */
         
+        print(DateTon.sharedDate.getTheMonth())
     }
 
     override func didReceiveMemoryWarning() {
