@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         //MARK: Tint color ;))
-        window?.tintColor = .gray
+        window?.tintColor = .red
         
         //Firebase.
         FirebaseApp.configure()
