@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		26C6E70612AF65267D5CA6AB /* Pods_Hackalist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE5FB5E8078D8FB0CB4EB1C /* Pods_Hackalist.framework */; };
+		E27C818420DD0CBE00CDBC60 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E27C818320DD0CBE00CDBC60 /* GoogleService-Info.plist */; };
+		E27C818620DD15F500CDBC60 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27C818520DD15F500CDBC60 /* NetworkController.swift */; };
+		E27C818820DD1E7400CDBC60 /* extensionURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27C818720DD1E7400CDBC60 /* extensionURL.swift */; };
 		E2F8409F20DCEB6E00423D88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F8409E20DCEB6E00423D88 /* AppDelegate.swift */; };
 		E2F840A420DCEB6E00423D88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2F840A220DCEB6E00423D88 /* Main.storyboard */; };
 		E2F840A620DCEB7000423D88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2F840A520DCEB7000423D88 /* Assets.xcassets */; };
 		E2F840A920DCEB7000423D88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2F840A720DCEB7000423D88 /* LaunchScreen.storyboard */; };
-		E2F840B720DCF6E200423D88 /* MonthItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F840B620DCF6E200423D88 /* MonthItem.swift */; };
+		E2F840B720DCF6E200423D88 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F840B620DCF6E200423D88 /* Listing.swift */; };
 		E2F840BA20DD057E00423D88 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F840B920DD057E00423D88 /* SearchTableViewController.swift */; };
 		E2F840BC20DD05A200423D88 /* SavedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F840BB20DD05A200423D88 /* SavedTableViewController.swift */; };
 		E2F840BE20DD05B800423D88 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F840BD20DD05B800423D88 /* ProfileViewController.swift */; };
@@ -23,13 +26,16 @@
 /* Begin PBXFileReference section */
 		85E900DE0C7D1CE5868A333C /* Pods-Hackalist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackalist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hackalist/Pods-Hackalist.debug.xcconfig"; sourceTree = "<group>"; };
 		9BABB898CC274612263ACB3D /* Pods-Hackalist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackalist.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hackalist/Pods-Hackalist.release.xcconfig"; sourceTree = "<group>"; };
+		E27C818320DD0CBE00CDBC60 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E27C818520DD15F500CDBC60 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		E27C818720DD1E7400CDBC60 /* extensionURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionURL.swift; sourceTree = "<group>"; };
 		E2F8409B20DCEB6E00423D88 /* Hackalist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hackalist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2F8409E20DCEB6E00423D88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2F840A320DCEB6E00423D88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2F840A520DCEB7000423D88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2F840A820DCEB7000423D88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2F840AA20DCEB7000423D88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E2F840B620DCF6E200423D88 /* MonthItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthItem.swift; sourceTree = "<group>"; };
+		E2F840B620DCF6E200423D88 /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		E2F840B920DD057E00423D88 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		E2F840BB20DD05A200423D88 /* SavedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewController.swift; sourceTree = "<group>"; };
 		E2F840BD20DD05B800423D88 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +94,7 @@
 				E2F840A520DCEB7000423D88 /* Assets.xcassets */,
 				E2F840A720DCEB7000423D88 /* LaunchScreen.storyboard */,
 				E2F840AA20DCEB7000423D88 /* Info.plist */,
+				E27C818320DD0CBE00CDBC60 /* GoogleService-Info.plist */,
 			);
 			path = Hackalist;
 			sourceTree = "<group>";
@@ -107,7 +114,7 @@
 		E2F840B320DCF21800423D88 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E2F840B620DCF6E200423D88 /* MonthItem.swift */,
+				E2F840B620DCF6E200423D88 /* Listing.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -115,6 +122,8 @@
 		E2F840B820DD00F500423D88 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E27C818520DD15F500CDBC60 /* NetworkController.swift */,
+				E27C818720DD1E7400CDBC60 /* extensionURL.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -189,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2F840A920DCEB7000423D88 /* LaunchScreen.storyboard in Resources */,
+				E27C818420DD0CBE00CDBC60 /* GoogleService-Info.plist in Resources */,
 				E2F840A620DCEB7000423D88 /* Assets.xcassets in Resources */,
 				E2F840A420DCEB6E00423D88 /* Main.storyboard in Resources */,
 			);
@@ -308,8 +318,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E27C818620DD15F500CDBC60 /* NetworkController.swift in Sources */,
+				E27C818820DD1E7400CDBC60 /* extensionURL.swift in Sources */,
 				E2F8409F20DCEB6E00423D88 /* AppDelegate.swift in Sources */,
-				E2F840B720DCF6E200423D88 /* MonthItem.swift in Sources */,
+				E2F840B720DCF6E200423D88 /* Listing.swift in Sources */,
 				E2F840BE20DD05B800423D88 /* ProfileViewController.swift in Sources */,
 				E2F840C020DD05CA00423D88 /* DetailViewController.swift in Sources */,
 				E2F840C220DD073600423D88 /* PropertyKeys.swift in Sources */,
@@ -463,7 +475,10 @@
 				DEVELOPMENT_TEAM = SUV78YK42U;
 				INFOPLIST_FILE = Hackalist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.blue-red.Hackalist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -480,7 +495,10 @@
 				DEVELOPMENT_TEAM = SUV78YK42U;
 				INFOPLIST_FILE = Hackalist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.blue-red.Hackalist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

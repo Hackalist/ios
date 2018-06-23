@@ -1,23 +1,24 @@
 //
-//  MonthItem.swift
+//  Listing.swift
 //  Hackalist
 //
 //  Created by Sergheev Andrian on 6/22/18.
 //  Copyright © 2018 Sergheev Andrian. All rights reserved.
 //
 
+
+
 import Foundation
 
-
 struct Listing: Codable {
-    let month: [Month]
+    let july: [July]
     
     enum CodingKeys: String, CodingKey {
-        case month = "Month"
+        case july = "July"
     }
 }
 
-struct Month: Codable {
+struct July: Codable {
     let title: String
     let url: String
     let startDate: String
@@ -84,9 +85,9 @@ extension Listing {
     }
 }
 
-extension Month {
+extension July {
     init(data: Data) throws {
-        self = try JSONDecoder().decode(Month.self, from: data)
+        self = try JSONDecoder().decode(July.self, from: data)
     }
     
     init(_ json: String, using encoding: String.Encoding = .utf8) throws {
@@ -126,22 +127,6 @@ extension URLSession {
         return self.codableTask(with: url, completionHandler: completionHandler)
     }
 }
-
-
-
-// To parse the JSON, add this file to your project and do:
-//
-//   let listing = try Listing(json)
-//
-// To read values from URLs:
-//
-//   let task = URLSession.shared.listingTask(with: url) { listing, response, error in
-//     if let listing = listing {
-//       ...
-//     }
-//   }
-//   task.resume()
-
 
 
 

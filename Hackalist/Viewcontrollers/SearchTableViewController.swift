@@ -18,6 +18,15 @@ class SearchTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+       
+        
+
+        //here goes the network code.
+        NetworkController.shared.fetchHackatonList(query: "") { (listing) in
+            print(listing)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
