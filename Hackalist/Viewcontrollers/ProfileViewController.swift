@@ -22,6 +22,15 @@ class ProfileViewController: UIViewController {
     }
     
 
+    
+    
+    //here it should be the swift store kit, which will open up after 3 opening of the app.
+    //also, the possibility to disable ads should be here as well.
+    
+    
+    
+    
+    
     /*
     // MARK: - Navigation
 

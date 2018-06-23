@@ -21,19 +21,59 @@ class SearchTableViewController: UITableViewController {
         
        
 /*
-        //here goes the network code.
-        NetworkController.shared.fetchHackatonList(query: "") { (listing) in
-            print(listing)
-        }
-        */
+        //here goes the network method, which will use the singleton to get the current month/year and pass this to the request. The output will populate the tableview.
+        //a button in profile view will offer the possibility to change the search to all possible hackatons, not only the current one.
+         
+   */
         
-        print(DateTon.sharedDate.getTheMonth())
+        
+        
+        //MARK: Networking request.
+        NetworkController.shared.fetchHackatonListForOurTime(year: "2018", month: "07") { (month) in
+            if let listingInfo = month {
+                self.updateUI(with: listingInfo)
+                print("Here is the listingInfo : \(listingInfo)")
+            }
+        }
+        
+       // print(DateTon.sharedDate.getTheMonth())
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //MARK: Holding the variables.
+    
+    var monthListing = [July]()
+    
+    
+    //MARK: UpdateUI
+    
+    func updateUI(with month: [July]) {
+        DispatchQueue.main.async {
+            self.monthListing = month
+            self.tableView.reloadData()
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     // MARK: - Table view data source
 
@@ -46,6 +86,17 @@ class SearchTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

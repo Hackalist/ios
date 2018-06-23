@@ -32,13 +32,7 @@ class NetworkController {
      to see the current, most nearest date for the available hackaton. The logic for the network will be written here, and the date and other stuff would be
      sent from the viewcontroller, or model, since it is going to persist. Since the date should be available everywhere, I guess I will write it in a model, as a singleton.
  */
-    /*
-    let query: [String: String] = [
-        "year" : "2018",
-        "month": "07.json"
-    ]
     
-    */
     
    
     
@@ -46,25 +40,28 @@ class NetworkController {
     //MARK: Getting the current year/month data to be parsed. Note that we have two values to be passed in. (current month/date).
     //we may need to refactor the code for "year + month" thing, if there is not going to be a "/" added automatically by swift.
     
-    func fetchHackatonListForOurTime(year: String, month: String, completion: @escaping ([Listing]?) -> Void ) {
-        let initialListingURL = baseURL.appendingPathComponent(year + month)
+    func fetchHackatonListForOurTime(year: String, month: String, completion: @escaping ([July]?) -> Void ) {  // should change the july shit here, for any month.
+        let initialListingURL = baseURL.appendingPathComponent(year + "/" +  month + ".json")
         
-        
+        /*
         var components = URLComponents(url: initialListingURL, resolvingAgainstBaseURL: true)!
         components.queryItems = [URLQueryItem(name: year + month, value: year + month)]
         let listingURL = components.url!
+        */
         
-        let task = URLSession.shared.dataTask(with: listingURL) { (data, response, err) in
+        print("Here is the listingURL : \(initialListingURL)")
+        
+        let task = URLSession.shared.dataTask(with: initialListingURL) { (data, response, err) in
             //code
             let jsonDecoder = JSONDecoder()
             if let data = data,
                 let listingItems = try? jsonDecoder.decode(Listing.self, from: data) {
                
                 print("\(String(describing: response)) and \(String(describing: err))")
-          //      completion(listingItems)
+                completion(listingItems.july)
             } else {
                 print("\(String(describing: response)) and \(String(describing: err))")
-          //      completion(nil)
+               completion(nil)
             }
             
         }

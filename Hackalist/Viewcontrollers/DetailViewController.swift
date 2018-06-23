@@ -13,13 +13,22 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // MARK: Set up the title.
+        title = titleName?.capitalized
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    //MARK: title of the hackaton matches with the shown one.
+    
+    var titleName: String?
+    
     
 
     /*
