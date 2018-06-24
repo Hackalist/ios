@@ -29,7 +29,7 @@ class SearchTableViewController: UITableViewController {
         
         
         //MARK: Networking request.
-        NetworkController.shared.fetchHackatonListForOurTime(year: "2018", month: "07") { (month) in
+        NetworkController.shared.fetchHackatonListForOurTime(year: self.year, month: self.month) { (month) in
             if let listingInfo = month {
                 self.updateUI(with: listingInfo)
                 print("Here is the listingInfo : \(listingInfo)")
@@ -47,12 +47,21 @@ class SearchTableViewController: UITableViewController {
     
     //MARK: Holding the variables.
     
-    var monthListing = [July]()
+    var monthListing = [June]()
+    
+    
+    
+    //MARK: Time Variables.
+    
+    let month = String(DateTon.sharedDate.getTheMonth())
+    let year = String(DateTon.sharedDate.getTheYear())
+    
+    
     
     
     //MARK: UpdateUI
     
-    func updateUI(with month: [July]) {
+    func updateUI(with month: [June]) {
         DispatchQueue.main.async {
             self.monthListing = month
             self.tableView.reloadData()

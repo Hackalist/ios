@@ -10,15 +10,28 @@
 
 import Foundation
 
+// To parse the JSON, add this file to your project and do:
+//
+//   let listing = try Listing(json)
+//
+// To read values from URLs:
+//
+//   let task = URLSession.shared.listingTask(with: url) { listing, response, error in
+//     if let listing = listing {
+//       ...
+//     }
+//   }
+//   task.resume()
+
 struct Listing: Codable {
-    let july: [July]
+    let june: [June]
     
     enum CodingKeys: String, CodingKey {
-        case july = "July"
+        case june = "June"
     }
 }
 
-struct July: Codable {
+struct June: Codable {
     let title: String
     let url: String
     let startDate: String
@@ -85,9 +98,9 @@ extension Listing {
     }
 }
 
-extension July {
+extension June {
     init(data: Data) throws {
-        self = try JSONDecoder().decode(July.self, from: data)
+        self = try JSONDecoder().decode(June.self, from: data)
     }
     
     init(_ json: String, using encoding: String.Encoding = .utf8) throws {
