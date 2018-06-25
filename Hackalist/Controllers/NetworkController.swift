@@ -37,7 +37,7 @@ class NetworkController {
     
     //MARK: Getting the current year/month data to be parsed. Note that we have two values to be passed in. (current month/date).
     
-    func fetchHackatonListForOurTime(year: String, month: String, completion: @escaping ([June]?) -> Void ) {  // should change the july shit here, for any month.
+    func fetchHackatonListForOurTime(year: String, month: String, completion: @escaping ([Month]?) -> Void ) {  // should change the july shit here, for any month.
         let initialListingURL = baseURL.appendingPathComponent(year + "/" + "0" + month + ".json")
         
         /*
@@ -55,7 +55,7 @@ class NetworkController {
                 let listingItems = try? jsonDecoder.decode(Listing.self, from: data) {
                
                 print("\(String(describing: response)) and \(String(describing: err))")
-                completion(listingItems.june)
+                completion(listingItems.months)
             } else {
                 print("\(String(describing: response)) and \(String(describing: err))")
                completion(nil)
@@ -64,6 +64,7 @@ class NetworkController {
         }
         task.resume()
     }
+    
     
     
     

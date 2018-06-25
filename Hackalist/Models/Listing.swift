@@ -24,14 +24,14 @@ import Foundation
 //   task.resume()
 
 struct Listing: Codable {
-    let june: [June]
+    let months: [Month]?
     
     enum CodingKeys: String, CodingKey {
-        case june = "June"
+        case months = "June"
     }
 }
 
-struct June: Codable {
+struct Month: Codable {
     let title: String
     let url: String
     let startDate: String
@@ -98,9 +98,9 @@ extension Listing {
     }
 }
 
-extension June {
+extension Month {
     init(data: Data) throws {
-        self = try JSONDecoder().decode(June.self, from: data)
+        self = try JSONDecoder().decode(Month.self, from: data)
     }
     
     init(_ json: String, using encoding: String.Encoding = .utf8) throws {
