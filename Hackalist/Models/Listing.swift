@@ -24,7 +24,7 @@ import Foundation
 //   task.resume()
 
 struct Listing: Codable {
-    let months: [Month]?
+    let months: [Month]
     
     enum CodingKeys: String, CodingKey {
         case months = "June"
@@ -71,6 +71,8 @@ struct Month: Codable {
     }
 }
 
+
+/*
 // MARK: Convenience initializers
 
 extension Listing {
@@ -141,7 +143,7 @@ extension URLSession {
     }
 }
 
-
+*/
 
 
 

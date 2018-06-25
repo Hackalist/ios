@@ -31,3 +31,20 @@ extension URL {
         return components?.url
     }
 }
+
+//MARK: Https extension.
+extension URL {
+    
+    func withHTTPS() -> URL? {
+        var components = URLComponents(url: self, resolvingAgainstBaseURL: true)
+        components?.scheme = "https"
+        return components?.url
+    }
+}
+
+
+
+
+
+
+
