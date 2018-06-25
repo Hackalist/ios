@@ -47,7 +47,7 @@ class SearchTableViewController: UITableViewController {
     
     //MARK: Holding the variables.
     
-    var monthListing = [Month]()
+    var monthListing = [Listing.Month]()
     
     
     
@@ -61,7 +61,7 @@ class SearchTableViewController: UITableViewController {
     
     //MARK: UpdateUI
     
-    func updateUI(with month: [Month]) {
+    func updateUI(with month: [Listing.Month]) {
         DispatchQueue.main.async {
             self.monthListing = month
             self.tableView.reloadData()

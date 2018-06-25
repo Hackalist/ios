@@ -21,6 +21,8 @@ class DateTon {
     //MARK: Calendar instance we will operate with.
     let calendar = NSCalendar.init(calendarIdentifier: NSCalendar.Identifier.gregorian)
     
+    
+    
     //MARK: "Asking" the calendar instance what month are we in today's date.
     func getTheMonth() -> Int {
         return (self.calendar?.component(NSCalendar.Unit.month, from: now))!
@@ -30,4 +32,18 @@ class DateTon {
         return (self.calendar?.component(NSCalendar.Unit.year, from: now))!
     }
     
+    
+    //MARK: DateFormatter for month format in String.
+    func getTheMonthString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "LLLL"
+        return dateFormatter.string(from: now)
+    }
 }
+
+
+
+
+
+
+

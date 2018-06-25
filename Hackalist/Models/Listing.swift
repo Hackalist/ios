@@ -29,47 +29,65 @@ struct Listing: Codable {
     enum CodingKeys: String, CodingKey {
         case months = "June"
     }
+    
+    
+    
+    private static var monthString : String {
+        return DateTon.sharedDate.getTheMonthString()
+    }
+    
+    
+    
+    
+    struct Month: Codable {
+        let title: String
+        let url: String
+        let startDate: String
+        let endDate: String
+        let year: String
+        let city: String
+        let host: String
+        let length: String
+        let size: String
+        let travel: String
+        let prize: String
+        let highSchoolers: String
+        let cost: String
+        let facebookURL: String
+        let twitterURL: String
+        let googlePlusURL: String
+        let notes: String
+        
+        enum CodingKeys: String, CodingKey {
+            case title = "title"
+            case url = "url"
+            case startDate = "startDate"
+            case endDate = "endDate"
+            case year = "year"
+            case city = "city"
+            case host = "host"
+            case length = "length"
+            case size = "size"
+            case travel = "travel"
+            case prize = "prize"
+            case highSchoolers = "highSchoolers"
+            case cost = "cost"
+            case facebookURL = "facebookURL"
+            case twitterURL = "twitterURL"
+            case googlePlusURL = "googlePlusURL"
+            case notes = "notes"
+        }
+    }
+    
+    
+    /*
+    init(from decoder: Decoder) throws {
+        
+    }
+    */
+    
 }
 
-struct Month: Codable {
-    let title: String
-    let url: String
-    let startDate: String
-    let endDate: String
-    let year: String
-    let city: String
-    let host: String
-    let length: String
-    let size: String
-    let travel: String
-    let prize: String
-    let highSchoolers: String
-    let cost: String
-    let facebookURL: String
-    let twitterURL: String
-    let googlePlusURL: String
-    let notes: String
-    
-    enum CodingKeys: String, CodingKey {
-        case title = "title"
-        case url = "url"
-        case startDate = "startDate"
-        case endDate = "endDate"
-        case year = "year"
-        case city = "city"
-        case host = "host"
-        case length = "length"
-        case size = "size"
-        case travel = "travel"
-        case prize = "prize"
-        case highSchoolers = "highSchoolers"
-        case cost = "cost"
-        case facebookURL = "facebookURL"
-        case twitterURL = "twitterURL"
-        case googlePlusURL = "googlePlusURL"
-        case notes = "notes"
-    }
-}
 
 
 /*
