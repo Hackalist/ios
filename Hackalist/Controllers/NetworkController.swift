@@ -37,16 +37,16 @@ class NetworkController {
     
     //MARK: Getting the current year/month data to be parsed. Note that we have two values to be passed in. (current month/date).
     
-    func fetchHackatonListForOurTime(year: String, month: String, completion: @escaping ([Listing.Month]?) -> Void ) {  // should change the july shit here, for any month.
+    func fetchHackatonListForOurTime(year: String, month: String, completion: @escaping ([Hackaton]?, Error? ) -> Void ) {  // should change the july shit here, for any month.
         
         guard let initialListingURL = baseURL.appendingPathComponent(year + "/" + "0" + month + ".json").withHTTPS() else {
-            completion(nil)
+            completion(nil, nil)
             print("Unable to build URL with supplied queries.")
             return
         }
         
         
-        print("Here is the listingURL : \(initialListingURL)")
+       // print("Here is the listingURL : \(initialListingURL)")
         
         let task = URLSession.shared.dataTask(with: initialListingURL) { (data, response, err) in
             //code
@@ -54,11 +54,11 @@ class NetworkController {
             if let data = data,
                 let listingItems = try? jsonDecoder.decode(Listing.self, from: data) {
                
-                print("\(String(describing: response)) and \(String(describing: err))")
-                completion(listingItems.months)
+               // print("\(String(describing: response)) and \(String(describing: err))")
+                completion(listingItems.months, nil)
             } else {
-                print("\(String(describing: response)) and \(String(describing: err))")
-               completion(nil)
+               // print("\(String(describing: response)) and \(String(describing: err))")
+               completion(nil, err)
             }
             
         }
@@ -73,6 +73,8 @@ class NetworkController {
     
     
 
+    
+    
     
     
     

@@ -13,10 +13,10 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // MARK: Set up the title.
+        // MARK: Set up the title. Do not forget to fix the issue for longer titles as well.
         title = titleName?.capitalized
-        
-        
+       // print("Here is the hackaton : \(hackaton)") //it works.
+        setupDelegate()
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,20 +25,51 @@ class DetailViewController: UIViewController {
     }
     
     
-    //MARK: title of the hackaton matches with the shown one.
-    
+    //MARK: Title of the hackaton matches with the shown one.
     var titleName: String?
     
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //MARK: Hold the data !!!
+    
+    var hackaton: Hackaton!
+    
+    
+    //MARK: Delegate
+    
+    var delegate: AddToSavedHackatonsDelegate?
+    
+    
+    //MARK: Please note that [1] means the indice in the arrays of tabBarControllers. For this scenario it matches the SavedTableViewController.
+    func setupDelegate() {
+        if let navController = tabBarController?.viewControllers?[1] as? UINavigationController,
+            let savedTableViewController = navController.viewControllers.last as? SavedTableViewController {
+            delegate = savedTableViewController
+        }
     }
-    */
+   
+    
+ 
+    
+    
+    
+    
+    
+    
+    @IBAction func saveHackatonButton(_ sender: UIButton) {
+        /*
+        UIView.animate(withDuration: 0.3) {
+         //   self.saveHackatonButton.transform = CGAffineTransform(scaleX: 3.0, y: 3.0)
+         //   self.saveHackatonButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        }
+        */
+        delegate?.added(hackaton: hackaton)
+       // print("To be passed: \(hackaton)")
+    }
+    
+    
+
+    
+
+    
 
 }

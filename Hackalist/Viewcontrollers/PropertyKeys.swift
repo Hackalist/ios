@@ -10,7 +10,14 @@ import Foundation
 
 struct PropertyKeys {
     
+    //MARK: TableView Cells
     static let searchCellIdentifier : String = "SearchCell"
     static let savedCellIdentifier : String = "SavedCell"
+    
+    
+    //MARK: Segue identifiers.
+    static let hackatonDetailSegueIdentifier : String = "hackatonDetail"
+    
+    
     
 }

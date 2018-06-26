@@ -18,6 +18,8 @@ PODS:
   - Firebase/AdMob (5.3.0):
     - Firebase/Core
     - Google-Mobile-Ads-SDK (= 7.31.0)
+  - Firebase/Analytics (5.3.0):
+    - Firebase/Core
   - Firebase/Auth (5.3.0):
     - Firebase/CoreOnly
     - FirebaseAuth (= 5.0.1)
@@ -170,6 +172,7 @@ PODS:
 
 DEPENDENCIES:
   - Firebase/AdMob
+  - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -248,6 +251,6 @@ SPEC CHECKSUMS:
   TwitterCore: 644d59e75abccb26cf0a9050d2c4dea0e5412241
   TwitterKit: a2e60ddcedbf54091eac6f27685ca7a87681e1d7
 
-PODFILE CHECKSUM: 17556136fbea487746dc6084b9288b9366fbe186
+PODFILE CHECKSUM: 1345626514b94da2c9bedd6995e9f2c44518b2fc
 
 COCOAPODS: 1.5.3

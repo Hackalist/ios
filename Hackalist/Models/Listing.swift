@@ -25,57 +25,57 @@ import Foundation
 
 struct Listing: Codable {
     
-    let months: [Month]
+    let months: [Hackaton]
     
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
-        let monthData = try container.decode([String:[Month]].self)
+        let monthData = try container.decode([String:[Hackaton]].self)
         months = monthData[monthData.keys.first!]!
     }
     
-    
-    
-    struct Month: Codable {
-        let title: String
-        let url: String
-        let startDate: String
-        let endDate: String
-        let year: String
-        let city: String
-        let host: String
-        let length: String
-        let size: String
-        let travel: String
-        let prize: String
-        let highSchoolers: String
-        let cost: String
-        let facebookURL: String
-        let twitterURL: String
-        let googlePlusURL: String
-        let notes: String
-        
-        enum CodingKeys: String, CodingKey {
-            case title = "title"
-            case url = "url"
-            case startDate = "startDate"
-            case endDate = "endDate"
-            case year = "year"
-            case city = "city"
-            case host = "host"
-            case length = "length"
-            case size = "size"
-            case travel = "travel"
-            case prize = "prize"
-            case highSchoolers = "highSchoolers"
-            case cost = "cost"
-            case facebookURL = "facebookURL"
-            case twitterURL = "twitterURL"
-            case googlePlusURL = "googlePlusURL"
-            case notes = "notes"
-        }
-    }
-    
 }
+
+
+struct Hackaton: Codable {
+    let title: String
+    let url: String
+    let startDate: String
+    let endDate: String
+    let year: String
+    let city: String
+    let host: String
+    let length: String
+    let size: String
+    let travel: String
+    let prize: String
+    let highSchoolers: String
+    let cost: String
+    let facebookURL: String
+    let twitterURL: String
+    let googlePlusURL: String
+    let notes: String
+    
+    enum CodingKeys: String, CodingKey {
+        case title = "title"
+        case url = "url"
+        case startDate = "startDate"
+        case endDate = "endDate"
+        case year = "year"
+        case city = "city"
+        case host = "host"
+        case length = "length"
+        case size = "size"
+        case travel = "travel"
+        case prize = "prize"
+        case highSchoolers = "highSchoolers"
+        case cost = "cost"
+        case facebookURL = "facebookURL"
+        case twitterURL = "twitterURL"
+        case googlePlusURL = "googlePlusURL"
+        case notes = "notes"
+    }
+}
+
 
 
 
@@ -155,26 +155,26 @@ extension URLSession {
 
 
 //MARK: Saving data to the disk.
-extension Listing {
+extension Hackaton {
     
 
     static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let archiveURL = documentsDirectory.appendingPathComponent("listing").appendingPathExtension("plist")
+    static let archiveURL = documentsDirectory.appendingPathComponent("hackaton").appendingPathExtension("plist")
     
     
-    static func saveToFile(list: [Listing]) {
+    static func saveToFile(list: [Hackaton]) {
         
         let propertyListEncoder = PropertyListEncoder()
-        let encodedList = try? propertyListEncoder.encode(list)
-        try? encodedList?.write(to: Listing.archiveURL, options: .noFileProtection)
+        let encodedHackaton = try? propertyListEncoder.encode(list)
+        try? encodedHackaton?.write(to: Hackaton.archiveURL, options: .noFileProtection)
     }
     
     
-    static func loadFromFile() -> [Listing]? {
+    static func loadFromFile() -> [Hackaton]? {
         
-        guard let codedListings = try? Data(contentsOf: archiveURL) else { return nil }
+        guard let codedHackatons = try? Data(contentsOf: archiveURL) else { return nil }
         let decoder = PropertyListDecoder()
-        return try? decoder.decode(Array<Listing>.self, from: codedListings)
+        return try? decoder.decode(Array<Hackaton>.self, from: codedHackatons)
     }
 }
 

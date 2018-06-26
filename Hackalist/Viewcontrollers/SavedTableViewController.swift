@@ -8,45 +8,151 @@
 
 import UIKit
 
-class SavedTableViewController: UITableViewController {
+//MARK: Delegate for passing the data.
+protocol AddToSavedHackatonsDelegate {
+    func added(hackaton: Hackaton)
+}
+
+
+
+class SavedTableViewController: UITableViewController, AddToSavedHackatonsDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
+        self.clearsSelectionOnViewWillAppear = false
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        if let savedHackatons  = Hackaton.loadFromFile() {
+            hackatonList = savedHackatons
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("Hackaton list passed : \(hackatonList)")
+        updateUI()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    var hackatonList = [Hackaton]()
+    
+
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return hackatonList.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.savedCellIdentifier, for: indexPath)
+        configureCell(cell: cell, forItemAt: indexPath)
         return cell
     }
-    */
+    
 
+    
+    //MARK: Configure Cell.
+    func configureCell(cell: UITableViewCell, forItemAt indexPath: IndexPath) {
+        let listingItem = hackatonList[indexPath.row]
+        cell.textLabel?.text = listingItem.title
+        cell.detailTextLabel?.text = listingItem.startDate
+        
+        //configure some image here as well..
+    }
+    
+    
+    
+    //MARK: Delegate implementation.
+    
+    
+    func added(hackaton: Hackaton) {
+        hackatonList.append(hackaton)
+        let count = hackatonList.count
+        let indexPath = IndexPath(row: count-1, section: 0)
+        tableView.insertRows(at: [indexPath], with: .automatic)
+        
+        //MARK: Saving data.
+        Hackaton.saveToFile(list: hackatonList)
+        //MARK: UI modif.
+        updateUI()
+    }
+    
+    
+    
+    
+    //MARK: Implementation for removing the item from the list.
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            hackatonList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            Hackaton.saveToFile(list: hackatonList)
+            updateUI()
+        }
+    }
+    
+    
+    
+    //MARK: Edit button handling.
+    func updateUI() {
+        if hackatonList.count == 0 {
+            editButtonItem.isEnabled = false
+        } else {
+            editButtonItem.isEnabled = true
+        }
+    }
+    
+    
+    
+    /*
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let nav = segue.destination as? UINavigationController,
+            let detailViewController = nav.topViewController as? DetailViewController {
+            detailViewController.delegate = self
+        }
+    }
+    */
+    
+    
+    
+    
+    
+    
+    
+    
+    /*
+    //MARK: Adjust the height of the rows.
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    */
+    
+    
+    
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

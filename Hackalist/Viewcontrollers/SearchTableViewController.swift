@@ -27,16 +27,12 @@ class SearchTableViewController: UITableViewController {
    */
         
         
-        
-        //MARK: Networking request.
-        NetworkController.shared.fetchHackatonListForOurTime(year: self.year, month: self.month) { (month) in
-            if let listingInfo = month {
-                self.updateUI(with: listingInfo)
-                print("Here is the listingInfo : \(listingInfo)")
-            }
-        }
-        
+        networkRequest()
        // print(DateTon.sharedDate.getTheMonth())
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        networkRequest()
     }
 
     
@@ -47,7 +43,7 @@ class SearchTableViewController: UITableViewController {
     
     //MARK: Holding the variables.
     
-    var monthListing = [Listing.Month]()
+    var monthListing = [Hackaton]()
     
     
     
@@ -61,7 +57,7 @@ class SearchTableViewController: UITableViewController {
     
     //MARK: UpdateUI
     
-    func updateUI(with month: [Listing.Month]) {
+    func updateUI(with month: [Hackaton]) {
         DispatchQueue.main.async {
             self.monthListing = month
             self.tableView.reloadData()
@@ -71,15 +67,34 @@ class SearchTableViewController: UITableViewController {
     
     
     
+    //MARK: Error handling.
+    func errorHelper() {
+        let errorAlert = UIAlertController(title: "Error", message: "Apologies, something went wrong, please try again later...", preferredStyle: .alert)
+        errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(errorAlert, animated: true) {
+            self.networkRequest()
+        }
+        
+    }
     
     
     
     
     
     
-    
-    
-    
+    //MARK: Networking request.
+    func networkRequest() {
+        NetworkController.shared.fetchHackatonListForOurTime(year: self.year, month: self.month) { (month, error) in
+            if let listingInfo = month {
+                self.updateUI(with: listingInfo)
+              //  print("Here is the listingInfo : \(listingInfo)")
+            } else {
+                if let _ = error {
+                    self.errorHelper()
+                }
+            }
+        }
+    }
     
     
     
@@ -121,9 +136,24 @@ class SearchTableViewController: UITableViewController {
     
     
     
+    
+    //MARK: Prepare for DetailViewController segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == PropertyKeys.hackatonDetailSegueIdentifier {
+           let detailViewController = segue.destination as! DetailViewController
+            let index = tableView.indexPathForSelectedRow!.row
+            detailViewController.titleName = monthListing[index].title
+            detailViewController.hackaton = monthListing[index]
+        }
+        
+    }
+    
 
  
 
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

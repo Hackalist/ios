@@ -106,8 +106,8 @@
 			children = (
 				E2F840B920DD057E00423D88 /* SearchTableViewController.swift */,
 				E2F840BB20DD05A200423D88 /* SavedTableViewController.swift */,
-				E2F840BD20DD05B800423D88 /* ProfileViewController.swift */,
 				E2F840BF20DD05CA00423D88 /* DetailViewController.swift */,
+				E2F840BD20DD05B800423D88 /* ProfileViewController.swift */,
 				E2F840C120DD073600423D88 /* PropertyKeys.swift */,
 			);
 			path = Viewcontrollers;

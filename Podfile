@@ -8,6 +8,7 @@ target 'Hackalist' do
   # Pods for Hackalist
 
   pod 'Firebase/Core'
+  pod 'Firebase/Analytics'
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
   pod 'FirebaseUI'
