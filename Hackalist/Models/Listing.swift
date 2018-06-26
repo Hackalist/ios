@@ -24,18 +24,14 @@ import Foundation
 //   task.resume()
 
 struct Listing: Codable {
+    
     let months: [Month]
     
-    enum CodingKeys: String, CodingKey {
-        case months = "June"
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let monthData = try container.decode([String:[Month]].self)
+        months = monthData[monthData.keys.first!]!
     }
-    
-    
-    
-    private static var monthString : String {
-        return DateTon.sharedDate.getTheMonthString()
-    }
-    
     
     
     
@@ -78,13 +74,6 @@ struct Listing: Codable {
             case notes = "notes"
         }
     }
-    
-    
-    /*
-    init(from decoder: Decoder) throws {
-        
-    }
-    */
     
 }
 
