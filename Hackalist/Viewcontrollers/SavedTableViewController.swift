@@ -73,9 +73,41 @@ class SavedTableViewController: UITableViewController, AddToSavedHackatonsDelega
         cell.textLabel?.text = listingItem.title
         cell.detailTextLabel?.text = listingItem.notes
         
+    
+        
+        //MARK: Image configuration:
         //configure some image here as well..
         //most probably favicon of the website of the hackaton.
+        let baseURL =  URL(string: "https://logo.clearbit.com/") //API.
+        let imageURL = listingItem.url
+        guard let finalURL = baseURL?.appendingPathComponent(imageURL) else { return }
+        
+        NetworkController.shared.fetchImage(url: finalURL) { (image) in
+            guard let image = image else { return }
+            
+            //MARK: Since in tableview cells are re-used we need to check the current indexpath!!
+            DispatchQueue.main.async {
+                if let currentIndexPath = self.tableView.indexPath(for: cell),
+                    currentIndexPath != indexPath { //MARK: if the indexpath is changed, skip setting the image.
+                    return
+                }
+                cell.imageView?.image = image
+            }
+        }
+        
+        
+       
     }
+    
+    
+    
+    
+
+    
+
+    
+    
+    
     
     
     
@@ -83,8 +115,6 @@ class SavedTableViewController: UITableViewController, AddToSavedHackatonsDelega
     
     
     func added(hackaton: Hackaton) {
-        
-        
         //MARK: Checking before saving if the element is a dupe.
         if hackatonList.contains(where: { $0.title == hackaton.title }) {
             errorHelper()
@@ -145,7 +175,7 @@ class SavedTableViewController: UITableViewController, AddToSavedHackatonsDelega
     //MARK: Adjust the height of the rows.
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 80
     }
     
     

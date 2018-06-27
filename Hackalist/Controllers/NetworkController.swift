@@ -68,6 +68,21 @@ class NetworkController {
     
     
     
+    
+    func fetchImage(url: URL, completion: @escaping (UIImage?) -> Void) {
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
+            if let data = data,
+                let image = UIImage(data: data  ) {
+                completion(image)
+                //  print("\(String(describing: response)) and \(String(describing: error))") //
+            } else {
+                completion(nil)
+                // print("\(String(describing: response)) and \(String(describing: error))") //
+            }
+        }
+        task.resume()
+    }
 
     
     

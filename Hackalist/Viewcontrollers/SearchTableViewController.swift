@@ -190,7 +190,12 @@ class SearchTableViewController: UITableViewController {
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         self.networkRequest()
-        refreshControl.endRefreshing()
+        
+        
+        //MARK: People like to wait..
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            refreshControl.endRefreshing()
+        }
     }
     
     

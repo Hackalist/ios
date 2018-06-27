@@ -154,7 +154,7 @@ extension URLSession {
 
 
 
-//MARK: Saving data to the disk.
+//MARK: Saving data to the disk. This data is not sensitive.
 extension Hackaton {
     
 
