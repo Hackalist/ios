@@ -71,9 +71,10 @@ class SavedTableViewController: UITableViewController, AddToSavedHackatonsDelega
     func configureCell(cell: UITableViewCell, forItemAt indexPath: IndexPath) {
         let listingItem = hackatonList[indexPath.row]
         cell.textLabel?.text = listingItem.title
-        cell.detailTextLabel?.text = listingItem.startDate
+        cell.detailTextLabel?.text = listingItem.notes
         
         //configure some image here as well..
+        //most probably favicon of the website of the hackaton.
     }
     
     
@@ -82,15 +83,31 @@ class SavedTableViewController: UITableViewController, AddToSavedHackatonsDelega
     
     
     func added(hackaton: Hackaton) {
-        hackatonList.append(hackaton)
-        let count = hackatonList.count
-        let indexPath = IndexPath(row: count-1, section: 0)
-        tableView.insertRows(at: [indexPath], with: .automatic)
         
-        //MARK: Saving data.
-        Hackaton.saveToFile(list: hackatonList)
+        
+        //MARK: Checking before saving if the element is a dupe.
+        if hackatonList.contains(where: { $0.title == hackaton.title }) {
+            errorHelper()
+        } else if hackatonList.count >= 0 {
+            hackatonList.append(hackaton)
+            let count = hackatonList.count
+            let indexPath = IndexPath(row: count-1, section: 0)
+            tableView.insertRows(at: [indexPath], with: .automatic)
+            
+            //MARK: Saving data.
+            Hackaton.saveToFile(list: hackatonList)
+        }
         //MARK: UI modif.
         updateUI()
+    }
+    
+    
+    //MARK: Error handling.
+    func errorHelper() {
+        let errorAlert = UIAlertController(title: "", message: "Already saved!", preferredStyle: .alert)
+        errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(errorAlert, animated: true) {
+        }
     }
     
     
@@ -125,29 +142,12 @@ class SavedTableViewController: UITableViewController, AddToSavedHackatonsDelega
     
     
     
-    /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let nav = segue.destination as? UINavigationController,
-            let detailViewController = nav.topViewController as? DetailViewController {
-            detailViewController.delegate = self
-        }
-    }
-    */
-    
-    
-    
-    
-    
-    
-    
-    
-    /*
     //MARK: Adjust the height of the rows.
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
-    */
+    
     
     
     

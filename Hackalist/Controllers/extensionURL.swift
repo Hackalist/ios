@@ -9,16 +9,7 @@
 import Foundation
 
 
-
-/*
- example:
- let query: [String: String] = [
- "year" : "2018",
- "month": "07.json"
- ]
- 
- */
-
+//MARK: A couple of extensions used in this project.
 
 
 //MARK: URL query extension.
@@ -32,6 +23,16 @@ extension URL {
     }
 }
 
+/*
+ example dictionary:
+ let query: [String: String] = [
+ "year" : "2018",
+ "month": "07.json"
+ ]
+ 
+ */
+
+
 //MARK: Https extension.
 extension URL {
     
@@ -41,6 +42,17 @@ extension URL {
         return components?.url
     }
 }
+
+
+//MARK: Array extension.
+
+extension Array where Element: Comparable {
+    func containsSameElements(as other: [Element]) -> Bool {
+        return self.count == other.count && self.sorted() == other.sorted()
+    }
+}
+
+
 
 
 
