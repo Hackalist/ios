@@ -6,6 +6,7 @@
 build/
 DerivedData/
 
+
 ## Various settings
 *.pbxuser
 !default.pbxuser
@@ -66,3 +67,6 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+
+#Firebase
+#Hackalist/GoogleService-Info.plist

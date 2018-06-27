@@ -26,13 +26,20 @@ class SearchTableViewController: UITableViewController {
          
    */
         
-        
+        //MARK: Network req.
         networkRequest()
-       // print(DateTon.sharedDate.getTheMonth())
+        //MARK: Setup refreshControl.
+        setupRefreshControl()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         networkRequest()
+        
+        //MARK: Quick fix, "just in case"
+        if pullToRefreshControl?.isRefreshing == true {
+            pullToRefreshControl?.endRefreshing()
+        }
+        
     }
 
     
@@ -83,7 +90,8 @@ class SearchTableViewController: UITableViewController {
     
     
     //MARK: Networking request.
-    func networkRequest() {
+     func networkRequest() {
+        pullToRefreshControl?.beginRefreshing()
         NetworkController.shared.fetchHackatonListForOurTime(year: self.year, month: self.month) { (month, error) in
             if let listingInfo = month {
                 self.updateUI(with: listingInfo)
@@ -151,6 +159,44 @@ class SearchTableViewController: UITableViewController {
     
 
  
+    
+    
+    //MARK: Pull to refresh implementation.
+
+    
+    //private let pullToRefresh = UIRefreshControl()
+    
+    
+    
+    
+    //MARK: Setup refresh control.
+    func setupRefreshControl() {
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = pullToRefreshControl
+        } else {
+            tableView.addSubview(pullToRefreshControl!)
+        }
+    }
+    
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        self.networkRequest()
+        refreshControl.endRefreshing()
+    }
+    
+    
+    
+    private var pullToRefreshControl: UIRefreshControl? {
+        let pullToRefresh = UIRefreshControl()
+        pullToRefresh.addTarget(self, action: #selector(SearchTableViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
+        pullToRefresh.tintColor = .red
+        
+        return pullToRefresh
+    }
+    
+    
+    
+    
 
     
     
