@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class SearchTableViewController: UITableViewController {
 
@@ -26,8 +27,13 @@ class SearchTableViewController: UITableViewController {
          
    */
         
-        //MARK: Network req.
+        //MARK: Network req & little touch on UI.
+        SVProgressHUD.show()
         networkRequest()
+        tableView.isHidden = true
+        SVProgressHUD.dismiss(withDelay: 0.5)
+        tableView.isHidden = false
+        
         //MARK: Setup refreshControl.
         setupRefreshControl()
     }
@@ -36,10 +42,14 @@ class SearchTableViewController: UITableViewController {
         networkRequest()
         
         //MARK: Quick fix, "just in case"
-        if pullToRefreshControl?.isRefreshing == true {
-            pullToRefreshControl?.endRefreshing()
+        if refreshControl?.isRefreshing == true {
+            refreshControl?.endRefreshing()
         }
-        
+    /*
+     //fixes bug with refreshControl freezing while switching tabs
+     if tableView.contentOffset.y < 0 {
+     tableView.contentOffset = .zero
+     } */
     }
 
     
@@ -91,7 +101,6 @@ class SearchTableViewController: UITableViewController {
     
     //MARK: Networking request.
      func networkRequest() {
-        pullToRefreshControl?.beginRefreshing()
         NetworkController.shared.fetchHackatonListForOurTime(year: self.year, month: self.month) { (month, error) in
             if let listingInfo = month {
                 self.updateUI(with: listingInfo)

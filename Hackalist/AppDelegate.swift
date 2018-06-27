@@ -28,6 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //MARK: Tint color ;))
         window?.tintColor = .red
         
+        //MARK: Swift storekit(reviews).
+        let currentCount = UserDefaults.standard.integer(forKey: "launchCount")
+        UserDefaults.standard.set(currentCount + 1 , forKey: "launchCount")
+        UserDefaults.standard.synchronize()
+        
+        
+        
         //Firebase.
         FirebaseApp.configure()
         return true

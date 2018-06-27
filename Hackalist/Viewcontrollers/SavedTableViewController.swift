@@ -37,7 +37,7 @@ class SavedTableViewController: UITableViewController, AddToSavedHackatonsDelega
     
     
     override func viewWillAppear(_ animated: Bool) {
-        print("Hackaton list passed : \(hackatonList)")
+      //  print("Hackaton list passed : \(hackatonList)")
         updateUI()
     }
 
