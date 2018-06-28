@@ -68,6 +68,7 @@ class SavedTableViewController: UITableViewController, AddToSavedHackatonsDelega
     
 
     
+    //MARK: Custom tableview cell is a must.
     //MARK: Configure Cell.
     func configureCell(cell: UITableViewCell, forItemAt indexPath: IndexPath) {
         let listingItem = hackatonList[indexPath.row]
@@ -95,9 +96,6 @@ class SavedTableViewController: UITableViewController, AddToSavedHackatonsDelega
                 cell.imageView?.image = image
             }
         }
-        
-        
-       
     }
     
     
@@ -113,8 +111,6 @@ class SavedTableViewController: UITableViewController, AddToSavedHackatonsDelega
     
     
     //MARK: Delegate implementation.
-    
-    
     func added(hackaton: Hackaton) {
         //MARK: Checking before saving if the element is a dupe.
         if hackatonList.contains(where: { $0.title == hackaton.title }) {

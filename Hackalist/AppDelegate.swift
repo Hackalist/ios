@@ -33,10 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserDefaults.standard.set(currentCount + 1 , forKey: "launchCount")
         UserDefaults.standard.synchronize()
         
-        
-        
         //Firebase.
         FirebaseApp.configure()
+        
+        //AdMob
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-4165361134979510~1352414237")
         return true
     }
 

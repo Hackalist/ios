@@ -8,8 +8,9 @@
 
 import UIKit
 import SVProgressHUD
+import GoogleMobileAds
 
-class SearchTableViewController: UITableViewController {
+class SearchTableViewController: UITableViewController, GADBannerViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,9 @@ class SearchTableViewController: UITableViewController {
         
         //MARK: Setup refreshControl.
         setupRefreshControl()
+        
+        //MARK: SetupAds
+        setupAds()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -133,6 +137,9 @@ class SearchTableViewController: UITableViewController {
     
     
     
+    
+    //MARK: Custom tableview cell is a must.
+    
     //MARK: Configure Cell.
     func configureCell(cell: UITableViewCell, forItemAt indexPath: IndexPath) {
         let listingItem = monthListing[indexPath.row]
@@ -207,6 +214,79 @@ class SearchTableViewController: UITableViewController {
         
         return pullToRefresh
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //MARK: Ads implementation.
+    
+    
+    var bannerView: GADBannerView!
+    
+    
+    func setupAds() {
+        //MARK: Google ads.
+        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        bannerView.adUnitID = "ca-app-pub-4165361134979510/5487918601"
+        bannerView.rootViewController = self
+        bannerView.delegate = self
+        bannerView.load(GADRequest())
+        
+    }
+    
+    
+    
+    //MARK: AdMob delegates.
+    
+    
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        tableView.tableHeaderView?.frame = bannerView.frame
+        tableView.tableHeaderView = bannerView
+        print("Banner loaded succesfully")
+        
+        
+        
+    }
+    
+    
+    
+    
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        print("Fail to receive ads: \(error)")
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

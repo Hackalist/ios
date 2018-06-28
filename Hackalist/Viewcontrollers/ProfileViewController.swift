@@ -9,13 +9,13 @@
 import UIKit
 import StoreKit
 
-
 class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,9 +56,7 @@ class ProfileViewController: UIViewController {
     }
     
 
-    
     //also, the possibility to disable ads should be here as well.
-    
     
     
     
