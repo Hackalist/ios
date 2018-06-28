@@ -203,7 +203,7 @@ class SearchTableViewController: UITableViewController {
     private var pullToRefreshControl: UIRefreshControl? {
         let pullToRefresh = UIRefreshControl()
         pullToRefresh.addTarget(self, action: #selector(SearchTableViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
-        pullToRefresh.tintColor = .red
+        pullToRefresh.tintColor = .orange
         
         return pullToRefresh
     }

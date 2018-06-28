@@ -47,6 +47,9 @@
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="rNY-KP-w3e" kind="show" identifier="hackatonSavedDetail" id="nE1-dN-eVC"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -54,11 +57,26 @@
                             <outlet property="delegate" destination="4i0-jc-7kn" id="o99-Fy-zLd"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Saved" id="Aep-ch-elS"/>
+                    <navigationItem key="navigationItem" title="Saved" largeTitleDisplayMode="never" id="Aep-ch-elS"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6d0-i5-3YH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1755" y="450"/>
+        </scene>
+        <!--Hackaton Saved Detail View Controller-->
+        <scene sceneID="em1-u2-app">
+            <objects>
+                <viewController id="rNY-KP-w3e" customClass="HackatonSavedDetailViewController" customModule="Hackalist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hns-h7-T5y">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="uvz-rh-GXv"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LGm-Uu-qp2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3024" y="450"/>
         </scene>
         <!--Saved-->
         <scene sceneID="Wc2-SJ-7tB">
@@ -66,7 +84,7 @@
                 <navigationController id="1Bn-Yq-MN9" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Saved" id="UFb-Hz-yf1"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="TF0-gM-LVc">
-                        <rect key="frame" x="0.0" y="20" width="320" height="93"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -131,7 +149,7 @@
                 <navigationController id="4bE-oR-aUP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Search" id="Si4-Gv-caD"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Lq6-RM-01c">
-                        <rect key="frame" x="0.0" y="20" width="320" height="93"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -169,10 +187,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qX5-ZE-1iY"/>
                     </view>
+                    <connections>
+                        <outlet property="saveHackatonButtonOutlet" destination="sEZ-hV-cY7" id="5xW-Us-pSM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="asE-uC-hQ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3071.25" y="152.11267605633802"/>
+            <point key="canvasLocation" x="3026" y="-314"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="hZn-hU-aAL">

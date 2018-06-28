@@ -39,6 +39,7 @@ class SavedTableViewController: UITableViewController, AddToSavedHackatonsDelega
     override func viewWillAppear(_ animated: Bool) {
       //  print("Hackaton list passed : \(hackatonList)")
         updateUI()
+        print("Hackaton list for savedVC: \(hackatonList)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -178,6 +179,21 @@ class SavedTableViewController: UITableViewController, AddToSavedHackatonsDelega
         return 80
     }
     
+    
+    
+    
+    //MARK: Prepare for DetailViewController segue. We use the same VC for two different segues.
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == PropertyKeys.hackatonSavedDetailSegueIdentifier {
+            let detailViewController = segue.destination as! HackatonSavedDetailViewController
+            let index = tableView.indexPathForSelectedRow!.row
+            detailViewController.hackaton = hackatonList[index]
+            detailViewController.titleName = hackatonList[index].title
+            
+        }
+        
+    }
     
     
     

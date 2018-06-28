@@ -17,7 +17,6 @@ struct PropertyKeys {
     
     //MARK: Segue identifiers.
     static let hackatonDetailSegueIdentifier : String = "hackatonDetail"
-    
-    
+    static let hackatonSavedDetailSegueIdentifier : String = "hackatonSavedDetail"
     
 }

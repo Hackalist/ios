@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         //MARK: Tint color ;))
-        window?.tintColor = .red
+        window?.tintColor = .orange
         
         //MARK: Swift storekit(reviews).
         let currentCount = UserDefaults.standard.integer(forKey: "launchCount")

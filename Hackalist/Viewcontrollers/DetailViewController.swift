@@ -25,12 +25,14 @@ class DetailViewController: UIViewController {
     }
     
     
-    //MARK: Title of the hackaton matches with the shown one.
+    //MARK: Property for title of the hackaton.
     var titleName: String?
+    
+    //MARK: Outlets:
+    @IBOutlet weak var saveHackatonButtonOutlet: UIButton?
     
     
     //MARK: Hold the data !!!
-    
     var hackaton: Hackaton!
     
     
@@ -46,12 +48,6 @@ class DetailViewController: UIViewController {
             delegate = savedTableViewController
         }
     }
-   
-    
- 
-    
-    
-    
     
     
     
@@ -68,6 +64,19 @@ class DetailViewController: UIViewController {
     
     
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 
     
