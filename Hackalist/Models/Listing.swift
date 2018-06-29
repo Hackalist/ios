@@ -26,14 +26,19 @@ import Foundation
 struct Listing: Codable {
     
     let months: [Hackaton]
+    let monthString : [String]
+    
     
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         let monthData = try container.decode([String:[Hackaton]].self)
         months = monthData[monthData.keys.first!]!
+        monthString = monthData.compactMap({$0.key})
     }
     
 }
+
+
 
 
 struct Hackaton: Codable {

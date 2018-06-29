@@ -9,6 +9,9 @@
 import UIKit
 import StoreKit
 
+
+//MARK: Actually settings tab.
+
 class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {

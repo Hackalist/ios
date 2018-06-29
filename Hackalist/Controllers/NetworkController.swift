@@ -37,28 +37,23 @@ class NetworkController {
     
     //MARK: Getting the current year/month data to be parsed. Note that we have two values to be passed in. (current month/date).
     
-    func fetchHackatonListForOurTime(year: String, month: String, completion: @escaping ([Hackaton]?, Error? ) -> Void ) {  // should change the july shit here, for any month.
+    func fetchHackatonListForOurTime(year: String, month: String, completion: @escaping ([Hackaton]?,[String]?, Error? ) -> Void ) {  // should change the july shit here, for any month.
         
         guard let initialListingURL = baseURL.appendingPathComponent(year + "/" + "0" + month + ".json").withHTTPS() else {
-            completion(nil, nil)
+            completion(nil, nil, nil)
             print("Unable to build URL with supplied queries.")
             return
         }
-        
-        
-       // print("Here is the listingURL : \(initialListingURL)")
         
         let task = URLSession.shared.dataTask(with: initialListingURL) { (data, response, err) in
             //code
             let jsonDecoder = JSONDecoder()
             if let data = data,
                 let listingItems = try? jsonDecoder.decode(Listing.self, from: data) {
-               
-               // print("\(String(describing: response)) and \(String(describing: err))")
-                completion(listingItems.months, nil)
+                completion(listingItems.months, listingItems.monthString, nil)
             } else {
                // print("\(String(describing: response)) and \(String(describing: err))")
-               completion(nil, err)
+               completion(nil, nil, err)
             }
             
         }
@@ -69,6 +64,8 @@ class NetworkController {
     
     
     
+    
+    //MARK: Fetch the image.
     func fetchImage(url: URL, completion: @escaping (UIImage?) -> Void) {
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             
@@ -87,10 +84,29 @@ class NetworkController {
     
     
     
-
     
     
+    /*
+    //MARK: Fetch the current month name.
     
+    
+    func fetchMonthName(url: URL, completion: @escaping (String?) -> Void) {
+        
+        
+        let task = URLSession.shared.dataTask(with: url) { (data, response, err) in
+            
+            let jsonDecoder = JSONDecoder()
+            
+            if let data = data, let monthString = try? jsonDecoder.decode(MonthName.self, from: data) {
+                completion(monthString.monthString)
+            } else {
+                completion(nil)
+            }
+        }
+        task.resume()
+    }
+    
+    */
     
     
     

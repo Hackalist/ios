@@ -95,7 +95,7 @@
             </objects>
             <point key="canvasLocation" x="594.375" y="450"/>
         </scene>
-        <!--Profile-->
+        <!--Settings-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ProfileViewController" customModule="Hackalist" customModuleProvider="target" sceneMemberID="viewController">
@@ -105,7 +105,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="YSN-tk-UyL"/>
+                    <tabBarItem key="tabBarItem" title="Settings" id="YSN-tk-UyL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

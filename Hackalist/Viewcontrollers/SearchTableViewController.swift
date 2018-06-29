@@ -105,9 +105,10 @@ class SearchTableViewController: UITableViewController, GADBannerViewDelegate {
     
     //MARK: Networking request.
      func networkRequest() {
-        NetworkController.shared.fetchHackatonListForOurTime(year: self.year, month: self.month) { (month, error) in
-            if let listingInfo = month {
+        NetworkController.shared.fetchHackatonListForOurTime(year: self.year, month: self.month) { (month, monthString, error) in
+            if let listingInfo = month, let monthString = monthString {
                 self.updateUI(with: listingInfo)
+                self.monthString = monthString
               //  print("Here is the listingInfo : \(listingInfo)")
             } else {
                 if let _ = error {
@@ -120,14 +121,8 @@ class SearchTableViewController: UITableViewController, GADBannerViewDelegate {
     
     
 
-    // MARK: - Table view data source
-
-    /*
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
- */
+    
+    
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -222,7 +217,36 @@ class SearchTableViewController: UITableViewController, GADBannerViewDelegate {
     
     
     
+    // MARK: Should get this via a network req.
+    // MARK: - Table view data source
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return monthString.count //return the number of months
+    }
     
+    
+    //MARK: Name of the month as variable.
+    var monthString =  [String]()
+    
+    //MARK: Name of the month in section.
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+          //  return "\(DateTon.sharedDate.getTheMonthString()) Hackatons"
+            return "\(monthString[0]) Hackatons"
+        case 1:
+            return "\(monthString[1]) Hackatons"
+        case 2:
+            return "" //etc...
+        default:
+            return ""
+        }
+    }
+    
+    
+
+    
+
     
     
     
@@ -251,13 +275,7 @@ class SearchTableViewController: UITableViewController, GADBannerViewDelegate {
         tableView.tableHeaderView?.frame = bannerView.frame
         tableView.tableHeaderView = bannerView
         print("Banner loaded succesfully")
-        
-        
-        
     }
-    
-    
-    
     
     func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
         print("Fail to receive ads: \(error)")
