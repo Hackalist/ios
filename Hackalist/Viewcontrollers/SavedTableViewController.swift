@@ -20,6 +20,11 @@ class SavedTableViewController: UITableViewController, AddToSavedHackatonsDelega
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 80
+        
+        
         // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
         
@@ -61,28 +66,26 @@ class SavedTableViewController: UITableViewController, AddToSavedHackatonsDelega
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.savedCellIdentifier, for: indexPath)
-        configureCell(cell: cell, forItemAt: indexPath)
-        return cell
-    }
-    
-
-    
-    //MARK: Custom tableview cell is a must.
-    //MARK: Configure Cell.
-    func configureCell(cell: UITableViewCell, forItemAt indexPath: IndexPath) {
-        let listingItem = hackatonList[indexPath.row]
-        cell.textLabel?.text = listingItem.title
-        cell.detailTextLabel?.text = listingItem.notes
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.savedCellIdentifier, for: indexPath) as? SavedTableViewCell else {
+            fatalError("Unable to dequeue SearchTableViewCell")
+        }
         
-    
+        
+        let listingItem = hackatonList[indexPath.row]
+        
+        
+        cell.hackatonTitle?.text = listingItem.title
+        cell.hackatonDate?.text = listingItem.startDate + " - " + listingItem.endDate + " | " +  listingItem.year
+        
         
         //MARK: Image configuration:
         //configure some image here as well..
         //most probably favicon of the website of the hackaton.
         let baseURL =  URL(string: "https://logo.clearbit.com/") //API.
         let imageURL = listingItem.url
-        guard let finalURL = baseURL?.appendingPathComponent(imageURL) else { return }
+        guard let finalURL = baseURL?.appendingPathComponent(imageURL) else {
+            return cell
+        }
         
         NetworkController.shared.fetchImage(url: finalURL) { (image) in
             guard let image = image else { return }
@@ -93,16 +96,28 @@ class SavedTableViewController: UITableViewController, AddToSavedHackatonsDelega
                     currentIndexPath != indexPath { //MARK: if the indexpath is changed, skip setting the image.
                     return
                 }
-                cell.imageView?.image = image
+                
+                    cell.hackatonImage?.layer.cornerRadius = (cell.hackatonImage?.frame.size.width)! / 2
+                    cell.hackatonImage?.layer.masksToBounds = true
+                    cell.hackatonImage?.image = image
             }
         }
+        
+        
+        
+        return cell
     }
     
+
     
+ 
     
     
 
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
 
     
     
@@ -169,12 +184,7 @@ class SavedTableViewController: UITableViewController, AddToSavedHackatonsDelega
     
     
     
-    //MARK: Adjust the height of the rows.
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
-    
+
     
     
     

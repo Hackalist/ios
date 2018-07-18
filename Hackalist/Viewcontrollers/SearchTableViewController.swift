@@ -35,7 +35,7 @@ class SearchTableViewController: UITableViewController, GADBannerViewDelegate {
         
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 150
+        self.tableView.estimatedRowHeight = 190
         
         
         //MARK: Network req & little touch on UI.
@@ -146,7 +146,7 @@ class SearchTableViewController: UITableViewController, GADBannerViewDelegate {
     
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150.0
+        return 250.0
     }
     
     
@@ -158,23 +158,62 @@ class SearchTableViewController: UITableViewController, GADBannerViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.searchCellIdentifier, for: indexPath) as? SearchTableViewCell else {
             fatalError("Unable to dequeue SearchTableViewCell")
         }
-     //configureCell(cell: cell, forItemAt: indexPath)
+     
         
+        
+     
+        
+        
+        //MARK: Cell configuration.
         let listingItem = monthListing[indexPath.row]
+        
+        
+        
         
         cell.hackatonTitle?.text = listingItem.title
         cell.hackatonNotesLabel?.text = listingItem.notes
         cell.hackatonDateLabel?.text = listingItem.startDate + " " + listingItem.endDate + " " + listingItem.host
         cell.hackatonCityLabel?.text = listingItem.city
-      //  cell.hackatonImage?.image = nil
         
+        
+        //MARK: Image configuration:
+        //configure some image here as well..
+        //most probably favicon of the website of the hackaton.
+        let baseURL =  URL(string: "https://logo.clearbit.com/") //API.
+        let imageURL = listingItem.url
+        
+        //MARK: If image will not load, return the current cell.
+        guard let finalURL = baseURL?.appendingPathComponent(imageURL) else {
+            return cell
+        }
+        
+        NetworkController.shared.fetchImage(url: finalURL) { (image) in
+            guard let image = image else { return }
+            
+            //MARK: Since in tableview cells are re-used we need to check the current indexpath!!
+            DispatchQueue.main.async {
+                if let currentIndexPath = self.tableView.indexPath(for: cell),
+                    currentIndexPath != indexPath { //MARK: if the indexpath is changed, skip setting the image.
+                    return
+                }
+                
+                
+                /*
+                cell.hackatonImage?.layer.cornerRadius = (cell.hackatonImage?.frame.size.width)! / 2
+                cell.hackatonImage?.layer.masksToBounds = true
+                */
+                
+                cell.hackatonImage?.image = image
+            }
+        }
      return cell
-        
     }
     
     
     
     
+    
+
     
     
     

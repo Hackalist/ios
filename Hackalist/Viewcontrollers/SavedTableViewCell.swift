@@ -1,5 +1,5 @@
 //
-//  SearchTableViewCell.swift
+//  SavedTableViewCell.swift
 //  Hackalist
 //
 //  Created by Andrian Sergheev on 7/18/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchTableViewCell: UITableViewCell {
+class SavedTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,16 +26,7 @@ class SearchTableViewCell: UITableViewCell {
     
     @IBOutlet weak var hackatonImage: UIImageView!
     @IBOutlet weak var hackatonTitle: UILabel!
-    @IBOutlet weak var hackatonDateLabel: UILabel!
-    @IBOutlet weak var hackatonCityLabel: UILabel!
-    @IBOutlet weak var hackatonNotesLabel: UILabel!
-    
-    
-    
-
-    
-    
-    
+    @IBOutlet weak var hackatonDate: UILabel!
     
     
 }
