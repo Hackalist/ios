@@ -31,6 +31,13 @@ class SearchTableViewController: UITableViewController, GADBannerViewDelegate {
          
    */
         
+        //MARK: TableView settings
+        
+        
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 150
+        
+        
         //MARK: Network req & little touch on UI.
         SVProgressHUD.show()
         networkRequest()
@@ -133,26 +140,34 @@ class SearchTableViewController: UITableViewController, GADBannerViewDelegate {
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return monthListing.count
     }
     
     
     
-    
-    //MARK: Custom tableview cell is a must.
-    
-    //MARK: Configure Cell.
-    func configureCell(cell: UITableViewCell, forItemAt indexPath: IndexPath) {
-        let listingItem = monthListing[indexPath.row]
-        cell.textLabel?.text = listingItem.title
-        cell.detailTextLabel?.text = listingItem.city
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150.0
     }
     
     
+
+    
+    //MARK: Custom tableViewCell.
+    
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.searchCellIdentifier, for: indexPath)
-     configureCell(cell: cell, forItemAt: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.searchCellIdentifier, for: indexPath) as? SearchTableViewCell else {
+            fatalError("Unable to dequeue SearchTableViewCell")
+        }
+     //configureCell(cell: cell, forItemAt: indexPath)
+        
+        let listingItem = monthListing[indexPath.row]
+        
+        cell.hackatonTitle?.text = listingItem.title
+        cell.hackatonNotesLabel?.text = listingItem.notes
+        cell.hackatonDateLabel?.text = listingItem.startDate + " " + listingItem.endDate + " " + listingItem.host
+        cell.hackatonCityLabel?.text = listingItem.city
+      //  cell.hackatonImage?.image = nil
+        
      return cell
         
     }
@@ -346,8 +361,8 @@ class SearchTableViewController: UITableViewController, GADBannerViewDelegate {
     
     
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        tableView.tableHeaderView?.frame = bannerView.frame
-        tableView.tableHeaderView = bannerView
+        tableView.tableFooterView?.frame = bannerView.frame
+        tableView.tableFooterView = bannerView
         print("Banner loaded succesfully")
     }
     

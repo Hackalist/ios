@@ -82,7 +82,7 @@
         <scene sceneID="Wc2-SJ-7tB">
             <objects>
                 <navigationController id="1Bn-Yq-MN9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Saved" id="UFb-Hz-yf1"/>
+                    <tabBarItem key="tabBarItem" title="Saved" image="check" id="UFb-Hz-yf1"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="TF0-gM-LVc">
                         <rect key="frame" x="0.0" y="20" width="320" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -105,7 +105,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="YSN-tk-UyL"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="YSN-tk-UyL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -120,14 +120,70 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchCell" id="7lw-4i-uI3">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="SearchCell" rowHeight="150" id="7lw-4i-uI3" customClass="SearchTableViewCell" customModule="Hackalist" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7lw-4i-uI3" id="n90-j6-Q7S">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="E8c-9I-HR4">
+                                            <rect key="frame" x="8" y="8" width="304" height="133.5"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BC1-at-KGI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="304" height="81"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Solid_gray" translatesAutoresizingMaskIntoConstraints="NO" id="pjz-5J-tCx">
+                                                            <rect key="frame" x="0.0" y="0.0" width="71" height="81"/>
+                                                        </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tvR-c3-7EV">
+                                                            <rect key="frame" x="79" y="0.0" width="225" height="81"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code For Cognitive Aid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hOf-Is-F35">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="210" height="24"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="July 13 - July 15 Ramen Club" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OAV-Af-jXW">
+                                                                    <rect key="frame" x="0.0" y="32" width="225" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Portola Valley, California, USA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="MjP-O2-uUP">
+                                                                    <rect key="frame" x="0.0" y="60.5" width="225" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mzo-PK-9uD">
+                                                    <rect key="frame" x="0.0" y="89" width="304" height="44.5"/>
+                                                    <string key="text">Code For Cognitive Aid is a hackathon and makeathon in the SF Bay Area dedicated to creating solutions to cognitive disabilities.</string>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="E8c-9I-HR4" firstAttribute="top" secondItem="n90-j6-Q7S" secondAttribute="top" constant="8" id="lsK-4W-RZo"/>
+                                        <constraint firstAttribute="bottom" secondItem="E8c-9I-HR4" secondAttribute="bottom" constant="8" id="sH9-P2-FfP"/>
+                                        <constraint firstAttribute="trailing" secondItem="E8c-9I-HR4" secondAttribute="trailing" constant="8" id="stO-NA-4y0"/>
+                                        <constraint firstItem="E8c-9I-HR4" firstAttribute="leading" secondItem="n90-j6-Q7S" secondAttribute="leading" constant="8" id="xJj-7H-eRh"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="hackatonCityLabel" destination="MjP-O2-uUP" id="PD6-DC-amf"/>
+                                    <outlet property="hackatonDateLabel" destination="OAV-Af-jXW" id="BeU-dg-s7h"/>
+                                    <outlet property="hackatonImage" destination="pjz-5J-tCx" id="erJ-WQ-Axg"/>
+                                    <outlet property="hackatonNotesLabel" destination="Mzo-PK-9uD" id="IIb-As-7oF"/>
+                                    <outlet property="hackatonTitle" destination="hOf-Is-F35" id="TQj-fC-BpQ"/>
                                     <segue destination="VsH-a3-lzg" kind="show" identifier="hackatonDetail" id="Qhk-ia-7aP"/>
                                 </connections>
                             </tableViewCell>
@@ -147,7 +203,7 @@
         <scene sceneID="fgX-Yl-zex">
             <objects>
                 <navigationController id="4bE-oR-aUP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" id="Si4-Gv-caD"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="search" id="Si4-Gv-caD"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Lq6-RM-01c">
                         <rect key="frame" x="0.0" y="20" width="320" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -218,5 +274,8 @@
     </scenes>
     <resources>
         <image name="Solid_gray" width="200" height="200"/>
+        <image name="check" width="25" height="25"/>
+        <image name="search" width="25" height="25"/>
+        <image name="settings" width="25" height="25"/>
     </resources>
 </document>

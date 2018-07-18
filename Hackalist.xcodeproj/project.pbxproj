@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04AC3D9620FF17B900142FCB /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AC3D9520FF17B900142FCB /* SearchTableViewCell.swift */; };
 		26C6E70612AF65267D5CA6AB /* Pods_Hackalist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE5FB5E8078D8FB0CB4EB1C /* Pods_Hackalist.framework */; };
 		E228AC3D20DE517D0004BBA8 /* DateTon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E228AC3C20DE517D0004BBA8 /* DateTon.swift */; };
 		E2307B1620E4CF5F00EA8C9B /* HackatonSavedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2307B1520E4CF5F00EA8C9B /* HackatonSavedDetailViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04AC3D9520FF17B900142FCB /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		85E900DE0C7D1CE5868A333C /* Pods-Hackalist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackalist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hackalist/Pods-Hackalist.debug.xcconfig"; sourceTree = "<group>"; };
 		9BABB898CC274612263ACB3D /* Pods-Hackalist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackalist.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hackalist/Pods-Hackalist.release.xcconfig"; sourceTree = "<group>"; };
 		E228AC3C20DE517D0004BBA8 /* DateTon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTon.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		E2F840B120DCF1F300423D88 /* Viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				04AC3D9520FF17B900142FCB /* SearchTableViewCell.swift */,
 				E2F840B920DD057E00423D88 /* SearchTableViewController.swift */,
 				E2F840BB20DD05A200423D88 /* SavedTableViewController.swift */,
 				E2F840BF20DD05CA00423D88 /* DetailViewController.swift */,
@@ -333,6 +336,7 @@
 				E228AC3D20DE517D0004BBA8 /* DateTon.swift in Sources */,
 				E2F840C020DD05CA00423D88 /* DetailViewController.swift in Sources */,
 				E2F840C220DD073600423D88 /* PropertyKeys.swift in Sources */,
+				04AC3D9620FF17B900142FCB /* SearchTableViewCell.swift in Sources */,
 				E2F840BA20DD057E00423D88 /* SearchTableViewController.swift in Sources */,
 				E2F840BC20DD05A200423D88 /* SavedTableViewController.swift in Sources */,
 			);
