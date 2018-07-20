@@ -77,6 +77,29 @@ class DetailViewController: UIViewController {
     
     
     
+    
+    //MARK: Prepare for the child segue. Pass the data to it.
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == PropertyKeys.sharedDetailTableViewController1 {
+            guard let childViewController = segue.destination as?  SharedDetailTableViewController else { return }
+            childViewController.hackaton = hackaton
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     
 

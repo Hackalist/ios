@@ -30,37 +30,14 @@ class HackatonSavedDetailViewController: UIViewController {
     
     
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    //MARK: Prepare for the child segue. Pass the data to it.
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == PropertyKeys.sharedDetailTableViewController2 {
+            guard let childViewController = segue.destination as?  SharedDetailTableViewController else { return }
+            childViewController.hackaton = hackaton
+        }
     }
-    */
-    
-    
-    
-    
-    //MARK: Outlets
-    
-    @IBOutlet weak var hackatonImage: UIImageView!
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     /*
@@ -94,12 +71,6 @@ class HackatonSavedDetailViewController: UIViewController {
     
     
     
-    
-    
-    
-    
-    
-
     
     
     

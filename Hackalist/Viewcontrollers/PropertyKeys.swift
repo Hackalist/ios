@@ -18,5 +18,9 @@ struct PropertyKeys {
     //MARK: Segue identifiers.
     static let hackatonDetailSegueIdentifier : String = "hackatonDetail"
     static let hackatonSavedDetailSegueIdentifier : String = "hackatonSavedDetail"
+    static let sharedDetailTableViewController1: String = "shared1"
+    static let sharedDetailTableViewController2: String = "shared2"
+    
+    
     
 }
