@@ -14,10 +14,18 @@
 //  limitations under the License.
 //
 
-#import "FUIAuthErrors.h"
+#import "FUIPrivacyAndTermsOfServiceView.h"
 
-NSString *const FUIAuthErrorDomain = @"FUIAuthErrorDomain";
+NS_ASSUME_NONNULL_BEGIN
 
-NSString *const FUIAuthErrorUserInfoProviderIDKey = @"FUIAuthErrorUserInfoProviderIDKey";
+@interface FUIPrivacyAndTermsOfServiceView (PhoneAuth)
 
-NSString *const FUIAuthCredentialKey = @"FUIAuthCredentialKey";
+/** @fn useFullMessageWithSMSRateTerm
+    @brief Display Privacy and Terms of Service message, along with a note related to SMS rate for
+           phone authentication.
+ */
+- (void)useFullMessageWithSMSRateTerm;
+
+@end
+
+NS_ASSUME_NONNULL_END

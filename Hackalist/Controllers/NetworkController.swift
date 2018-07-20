@@ -86,49 +86,6 @@ class NetworkController {
     
     
     
-    /*
-    //MARK: Fetch the current month name.
-    
-    
-    func fetchMonthName(url: URL, completion: @escaping (String?) -> Void) {
-        
-        
-        let task = URLSession.shared.dataTask(with: url) { (data, response, err) in
-            
-            let jsonDecoder = JSONDecoder()
-            
-            if let data = data, let monthString = try? jsonDecoder.decode(MonthName.self, from: data) {
-                completion(monthString.monthString)
-            } else {
-                completion(nil)
-            }
-        }
-        task.resume()
-    }
-    
-    */
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 
     

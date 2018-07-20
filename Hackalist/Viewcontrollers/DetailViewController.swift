@@ -52,28 +52,27 @@ class DetailViewController: UIViewController {
     
     
     @IBAction func saveHackatonButton(_ sender: UIButton) {
-        /*
-        UIView.animate(withDuration: 0.3) {
-         //   self.saveHackatonButton.transform = CGAffineTransform(scaleX: 3.0, y: 3.0)
-         //   self.saveHackatonButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        }
-        */
+  
+        
+        //MARK: Nice bouncing animation.
+        sender.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+        
+        UIView.animate(withDuration: 2.0,
+                       delay: 0,
+                       usingSpringWithDamping: CGFloat(0.20),
+                       initialSpringVelocity: CGFloat(6.0),
+                       options: UIViewAnimationOptions.allowUserInteraction,
+                       animations: {
+                        sender.transform = CGAffineTransform.identity
+        },
+                       completion: { Void in()  }
+        )
+        
         delegate?.added(hackaton: hackaton)
-       // print("To be passed: \(hackaton)")
     }
     
     
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     

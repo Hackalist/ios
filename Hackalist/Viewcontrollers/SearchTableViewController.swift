@@ -31,19 +31,27 @@ class SearchTableViewController: UITableViewController, GADBannerViewDelegate {
          
    */
         
-        //MARK: TableView settings
         
+        
+        //MARK: Navigation controller colors.
+      //  navigationController?.navigationBar.barTintColor = UIColor(red: 230/255, green: 255/255, blue: 255/255, alpha: 0.1)
+        
+        
+        
+        //MARK: TableView settings
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 190
         
+        
+
         
         //MARK: Network req & little touch on UI.
         SVProgressHUD.show()
         networkRequest()
         //showHackatonsForCurrentYear()
         tableView.isHidden = true
-        SVProgressHUD.dismiss(withDelay: 0.5)
+        SVProgressHUD.dismiss(withDelay: 1.0)
         tableView.isHidden = false
         
         //MARK: Setup refreshControl.
@@ -417,10 +425,7 @@ class SearchTableViewController: UITableViewController, GADBannerViewDelegate {
     
     
     
-    
-    
-    
-    
+
     
     
     

@@ -83,33 +83,33 @@ PODS:
   - FirebaseSwizzlingUtilities/ISASwizzling (2.0.0)
   - FirebaseSwizzlingUtilities/MethodSwizzling (2.0.0):
     - FirebaseCore (~> 5.0)
-  - FirebaseUI (5.0.1):
-    - FirebaseUI/Auth (= 5.0.1)
-    - FirebaseUI/Database (= 5.0.1)
-    - FirebaseUI/Facebook (= 5.0.1)
-    - FirebaseUI/Firestore (= 5.0.1)
-    - FirebaseUI/Google (= 5.0.1)
-    - FirebaseUI/Phone (= 5.0.1)
-    - FirebaseUI/Storage (= 5.0.1)
-    - FirebaseUI/Twitter (= 5.0.1)
-  - FirebaseUI/Auth (5.0.1):
+  - FirebaseUI (5.1.2):
+    - FirebaseUI/Auth (= 5.1.2)
+    - FirebaseUI/Database (= 5.1.2)
+    - FirebaseUI/Facebook (= 5.1.2)
+    - FirebaseUI/Firestore (= 5.1.2)
+    - FirebaseUI/Google (= 5.1.2)
+    - FirebaseUI/Phone (= 5.1.2)
+    - FirebaseUI/Storage (= 5.1.2)
+    - FirebaseUI/Twitter (= 5.1.2)
+  - FirebaseUI/Auth (5.1.2):
     - Firebase/Auth (~> 5.0)
-  - FirebaseUI/Database (5.0.1):
+  - FirebaseUI/Database (5.1.2):
     - Firebase/Database (~> 5.0)
-  - FirebaseUI/Facebook (5.0.1):
+  - FirebaseUI/Facebook (5.1.2):
     - FBSDKLoginKit (~> 4.0)
     - FirebaseUI/Auth
-  - FirebaseUI/Firestore (5.0.1):
+  - FirebaseUI/Firestore (5.1.2):
     - Firebase/Firestore
-  - FirebaseUI/Google (5.0.1):
+  - FirebaseUI/Google (5.1.2):
     - FirebaseUI/Auth
     - GoogleSignIn (~> 4.0)
-  - FirebaseUI/Phone (5.0.1):
+  - FirebaseUI/Phone (5.1.2):
     - FirebaseUI/Auth
-  - FirebaseUI/Storage (5.0.1):
+  - FirebaseUI/Storage (5.1.2):
     - Firebase/Storage (~> 5.0)
     - SDWebImage (~> 4.0)
-  - FirebaseUI/Twitter (5.0.1):
+  - FirebaseUI/Twitter (5.1.2):
     - FirebaseUI/Auth
     - TwitterKit (~> 3.0)
   - Google-Mobile-Ads-SDK (7.31.0)
@@ -166,9 +166,9 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - Protobuf (3.6.0)
-  - SDWebImage (4.4.1):
-    - SDWebImage/Core (= 4.4.1)
-  - SDWebImage/Core (4.4.1)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
   - SVProgressHUD (2.2.5)
   - TwitterCore (3.2.0)
   - TwitterKit (3.4.0):
@@ -236,7 +236,7 @@ SPEC CHECKSUMS:
   FirebasePerformance: 1ebd87ffee5ca814582db1dc9e25651792ba02db
   FirebaseStorage: 7ca4bb7b58a25fa647b04f524033fc7cb7eb272b
   FirebaseSwizzlingUtilities: 6c22677c50d0b6f5f0dc637c1233f13694a3003f
-  FirebaseUI: 5d97d3d5d6a019fc960eb573ea6ce9fb8c310669
+  FirebaseUI: c930d31e685bc8839d5eef17ab5405a1bd473240
   Google-Mobile-Ads-SDK: 6e529e748b45507a2ca904e0b5a52669ba3920c4
   GoogleSignIn: d9ef55b10f0aa401a5de2747f59b725e4b9732ac
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
@@ -250,7 +250,7 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 0fc0ad8bec688b2a3017a139953e01374fedbd5f
-  SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: bc7bd086b9b724a1d888745a054e1d0b1ecc4f3f

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0428C91720FF5D8300617515 /* SavedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428C91620FF5D8300617515 /* SavedTableViewCell.swift */; };
+		04A653E92101E3D5009E84AF /* extensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A653E82101E3D5009E84AF /* extensionUIView.swift */; };
 		04AC3D9620FF17B900142FCB /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AC3D9520FF17B900142FCB /* SearchTableViewCell.swift */; };
 		26C6E70612AF65267D5CA6AB /* Pods_Hackalist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE5FB5E8078D8FB0CB4EB1C /* Pods_Hackalist.framework */; };
 		E228AC3D20DE517D0004BBA8 /* DateTon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E228AC3C20DE517D0004BBA8 /* DateTon.swift */; };
@@ -29,7 +30,9 @@
 
 /* Begin PBXFileReference section */
 		0428C91620FF5D8300617515 /* SavedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewCell.swift; sourceTree = "<group>"; };
+		04A653E82101E3D5009E84AF /* extensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIView.swift; sourceTree = "<group>"; };
 		04AC3D9520FF17B900142FCB /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		04F74D0321009AF000D4784A /* Hackalist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hackalist.entitlements; sourceTree = "<group>"; };
 		85E900DE0C7D1CE5868A333C /* Pods-Hackalist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackalist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hackalist/Pods-Hackalist.debug.xcconfig"; sourceTree = "<group>"; };
 		9BABB898CC274612263ACB3D /* Pods-Hackalist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackalist.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hackalist/Pods-Hackalist.release.xcconfig"; sourceTree = "<group>"; };
 		E228AC3C20DE517D0004BBA8 /* DateTon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTon.swift; sourceTree = "<group>"; };
@@ -94,11 +97,13 @@
 		E2F8409D20DCEB6E00423D88 /* Hackalist */ = {
 			isa = PBXGroup;
 			children = (
+				04F74D0321009AF000D4784A /* Hackalist.entitlements */,
 				E2F8409E20DCEB6E00423D88 /* AppDelegate.swift */,
 				E2F840B320DCF21800423D88 /* Models */,
 				E2F840B820DD00F500423D88 /* Controllers */,
 				E2F840B120DCF1F300423D88 /* Viewcontrollers */,
 				E2F840A220DCEB6E00423D88 /* Main.storyboard */,
+				04A653E82101E3D5009E84AF /* extensionUIView.swift */,
 				E27C818720DD1E7400CDBC60 /* extensionURL.swift */,
 				E2F840A520DCEB7000423D88 /* Assets.xcassets */,
 				E2F840A720DCEB7000423D88 /* LaunchScreen.storyboard */,
@@ -183,6 +188,11 @@
 				TargetAttributes = {
 					E2F8409A20DCEB6E00423D88 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -338,6 +348,7 @@
 				E228AC3D20DE517D0004BBA8 /* DateTon.swift in Sources */,
 				E2F840C020DD05CA00423D88 /* DetailViewController.swift in Sources */,
 				E2F840C220DD073600423D88 /* PropertyKeys.swift in Sources */,
+				04A653E92101E3D5009E84AF /* extensionUIView.swift in Sources */,
 				04AC3D9620FF17B900142FCB /* SearchTableViewCell.swift in Sources */,
 				E2F840BA20DD057E00423D88 /* SearchTableViewController.swift in Sources */,
 				E2F840BC20DD05A200423D88 /* SavedTableViewController.swift in Sources */,
@@ -485,6 +496,7 @@
 			baseConfigurationReference = 85E900DE0C7D1CE5868A333C /* Pods-Hackalist.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SUV78YK42U;
 				INFOPLIST_FILE = Hackalist/Info.plist;
@@ -495,6 +507,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.blue-red.Hackalist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -505,6 +518,7 @@
 			baseConfigurationReference = 9BABB898CC274612263ACB3D /* Pods-Hackalist.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SUV78YK42U;
 				INFOPLIST_FILE = Hackalist/Info.plist;
@@ -515,6 +529,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.blue-red.Hackalist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
