@@ -22,14 +22,18 @@ class SharedDetailTableViewController: UITableViewController {
         
         
         
-        //MARK: Row height.
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 44.0
-        
-        
         //MARK: Set up the tableview.
         tableView.allowsSelection = false
         setupTableView()
+        
+        
+        
+        
+        //MARK: Row height.
+        tableView.estimatedRowHeight = 44.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,6 +41,8 @@ class SharedDetailTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    
     
 
     
@@ -64,24 +70,85 @@ class SharedDetailTableViewController: UITableViewController {
     
     
     
+    
+    
     func setupTableView() {
+        
+        
+        //MARK: Configurations.
+        notesLabel.numberOfLines = 0
+        notesLabel.sizeToFit()
+        
+        
+        let facebookString = NSMutableAttributedString(string: "Facebook")
+        let facebookStringWithURL = facebookString.setAsLink(textToFind: hackaton.facebookURL, linkURL: hackaton.facebookURL)
+        
+        
+        
+        
+        if facebookStringWithURL {
+            socialLabel.text = facebookStringWithURL.description
+        } else {
+            socialLabel.text = "nothing"
+        }
+        
+        
+        
+        
+        
+        
+        
+        socialLabel.textColor = .blue
+        websiteLabel.textColor = .blue
+        
+        
+        
+        /*
+        // Attributed String for Label
+        let plainText = "Apkia"
+        let styledText = NSMutableAttributedString(string: plainText)
+        // Set Attribuets for Color, HyperLink and Font Size
+        let attributes = [NSFontAttributeName: UIFont.systemFontOfSize(14.0), NSLinkAttributeName:NSURL(string: "http://apkia.com/")!, NSForegroundColorAttributeName: UIColor.blueColor()]
+        styledText.setAttributes(attributes, range: NSMakeRange(0, plainText.characters.count))
+        registerLabel.attributedText = styledText
+        
+        */
+        
+        
         
         titleLabel.text = hackaton.title
         websiteLabel.text = hackaton.url
-        socialLabel.text = hackaton.facebookURL
-        cityLabel.text = hackaton.city
-        hostLabel.text = hackaton.host
+        
+        
+        cityLabel.text = hackaton.city.capitalized
+        hostLabel.text = hackaton.host.capitalized
         dateLabel.text = hackaton.startDate + " - " + hackaton.endDate
         yearLabel.text = hackaton.year
         lengthLabel.text = hackaton.length + " days"
-        notesLabel.text = hackaton.notes
+        notesLabel.text = hackaton.notes.capitalized
         prizeLabel.text = hackaton.prize.capitalized
         costLabel.text = hackaton.cost.capitalized
         travelLabel.text = hackaton.travel.capitalized
+        
+        
+        
+
+        
+        
     }
     
     
     
+    
+    
+    //MARK: Tableview Setup.
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
     
     
     
@@ -166,3 +233,24 @@ class SharedDetailTableViewController: UITableViewController {
     */
 
 }
+
+
+
+
+
+extension NSMutableAttributedString {
+    
+    public func setAsLink(textToFind:String, linkURL:String) -> Bool {
+        
+        let foundRange = self.mutableString.range(of: textToFind)
+        if foundRange.location != NSNotFound {
+            self.addAttribute(.link, value: linkURL, range: foundRange)
+            return true
+        }
+        return false
+    }
+}
+
+
+
+
