@@ -8,10 +8,6 @@
 
 import Foundation
 
-
-//MARK: A couple of extensions used in this project.
-
-
 //MARK: URL query extension.
 extension URL {
     func withQueries(_ queries: [String: String]) -> URL? {

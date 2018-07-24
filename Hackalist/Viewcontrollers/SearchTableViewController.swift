@@ -39,9 +39,9 @@ class SearchTableViewController: UITableViewController, GADBannerViewDelegate {
         
         
         //MARK: TableView settings
-        
-        self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 190
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+
         
         
 
@@ -142,21 +142,21 @@ class SearchTableViewController: UITableViewController, GADBannerViewDelegate {
     
     
     
+    //MARK: Tableview row height Setup.
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension //250.0
+    }
+    
 
-    
-    
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return monthListing.count
     }
-    
-    
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 250.0
-    }
-    
     
 
     
@@ -410,7 +410,7 @@ class SearchTableViewController: UITableViewController, GADBannerViewDelegate {
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
         tableView.tableFooterView?.frame = bannerView.frame
         tableView.tableFooterView = bannerView
-        print("Banner loaded succesfully")
+        //print("Banner loaded succesfully")
     }
     
     func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {

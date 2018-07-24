@@ -11,6 +11,7 @@
 		0428C91720FF5D8300617515 /* SavedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428C91620FF5D8300617515 /* SavedTableViewCell.swift */; };
 		04A653E92101E3D5009E84AF /* extensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A653E82101E3D5009E84AF /* extensionUIView.swift */; };
 		04AC3D9620FF17B900142FCB /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AC3D9520FF17B900142FCB /* SearchTableViewCell.swift */; };
+		04F3178121072F3F00B03263 /* extensionUITapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3178021072F3F00B03263 /* extensionUITapGestureRecognizer.swift */; };
 		26C6E70612AF65267D5CA6AB /* Pods_Hackalist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE5FB5E8078D8FB0CB4EB1C /* Pods_Hackalist.framework */; };
 		E228AC3D20DE517D0004BBA8 /* DateTon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E228AC3C20DE517D0004BBA8 /* DateTon.swift */; };
 		E2307B1620E4CF5F00EA8C9B /* HackatonSavedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2307B1520E4CF5F00EA8C9B /* HackatonSavedDetailViewController.swift */; };
@@ -34,6 +35,7 @@
 		0428C91620FF5D8300617515 /* SavedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewCell.swift; sourceTree = "<group>"; };
 		04A653E82101E3D5009E84AF /* extensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIView.swift; sourceTree = "<group>"; };
 		04AC3D9520FF17B900142FCB /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		04F3178021072F3F00B03263 /* extensionUITapGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUITapGestureRecognizer.swift; sourceTree = "<group>"; };
 		04F74D0321009AF000D4784A /* Hackalist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hackalist.entitlements; sourceTree = "<group>"; };
 		85E900DE0C7D1CE5868A333C /* Pods-Hackalist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackalist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hackalist/Pods-Hackalist.debug.xcconfig"; sourceTree = "<group>"; };
 		9BABB898CC274612263ACB3D /* Pods-Hackalist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackalist.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hackalist/Pods-Hackalist.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				E2F840A220DCEB6E00423D88 /* Main.storyboard */,
 				04A653E82101E3D5009E84AF /* extensionUIView.swift */,
 				E27C818720DD1E7400CDBC60 /* extensionURL.swift */,
+				04F3178021072F3F00B03263 /* extensionUITapGestureRecognizer.swift */,
 				E2F840A520DCEB7000423D88 /* Assets.xcassets */,
 				E2F840A720DCEB7000423D88 /* LaunchScreen.storyboard */,
 				E2F840AA20DCEB7000423D88 /* Info.plist */,
@@ -289,6 +292,7 @@
 				E27C818820DD1E7400CDBC60 /* extensionURL.swift in Sources */,
 				E2F8409F20DCEB6E00423D88 /* AppDelegate.swift in Sources */,
 				E2F840B720DCF6E200423D88 /* Listing.swift in Sources */,
+				04F3178121072F3F00B03263 /* extensionUITapGestureRecognizer.swift in Sources */,
 				E2F840BE20DD05B800423D88 /* ProfileViewController.swift in Sources */,
 				E228AC3D20DE517D0004BBA8 /* DateTon.swift in Sources */,
 				E2F840C020DD05CA00423D88 /* DetailViewController.swift in Sources */,

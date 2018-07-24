@@ -37,7 +37,7 @@ class ProfileViewController: UIViewController {
     
     func showReviewKit() {
         let launchCount: Int = UserDefaults.standard.integer(forKey: "launchCount")
-        print("App was launched :\(launchCount) times")
+        //print("App was launched :\(launchCount) times")
         
         
         if #available(iOS 10.3, *) {
