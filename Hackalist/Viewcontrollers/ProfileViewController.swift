@@ -59,12 +59,6 @@ class ProfileViewController: UIViewController {
     }
     
 
-    //also, the possibility to disable ads should be here as well.
-    
-    
-    
-    
-    
     
     /*
     // MARK: - Navigation

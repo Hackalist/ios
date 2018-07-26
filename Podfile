@@ -13,7 +13,7 @@ target 'Hackalist' do
   #pod 'Firebase/Database'
   #pod 'FirebaseUI'
   #pod 'Firebase/Auth'
-  pod 'Firebase/AdMob'
+  #pod 'Firebase/AdMob'
   pod 'Firebase/Performance'
   pod 'SVProgressHUD'
   #pod 'Kingfisher'

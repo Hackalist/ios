@@ -8,12 +8,12 @@
 
 import UIKit
 import SVProgressHUD
-import GoogleMobileAds
+//import GoogleMobileAds
 
 //MARK: Note: Should change the logic of holding the hackatons into a dictionary.
 
 
-class SearchTableViewController: UITableViewController, GADBannerViewDelegate {
+class SearchTableViewController: UITableViewController { //GADBannerViewDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +58,7 @@ class SearchTableViewController: UITableViewController, GADBannerViewDelegate {
         setupRefreshControl()
         
         //MARK: SetupAds
-        setupAds()
+       // setupAds()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -180,7 +180,7 @@ class SearchTableViewController: UITableViewController, GADBannerViewDelegate {
         
         cell.hackatonTitle?.text = listingItem.title
         cell.hackatonNotesLabel?.text = listingItem.notes
-        cell.hackatonDateLabel?.text = listingItem.startDate + " " + listingItem.endDate + " " + listingItem.host
+        cell.hackatonDateLabel?.text = listingItem.startDate + " - " + listingItem.endDate + " " + listingItem.host
         cell.hackatonCityLabel?.text = listingItem.city
         
         
@@ -383,7 +383,7 @@ class SearchTableViewController: UITableViewController, GADBannerViewDelegate {
 
     
     
-    
+    /*
     
     
     //MARK: Ads implementation.
@@ -417,7 +417,7 @@ class SearchTableViewController: UITableViewController, GADBannerViewDelegate {
         print("Fail to receive ads: \(error)")
     }
     
-    
+    */
     
     
     
