@@ -20,7 +20,4 @@ struct PropertyKeys {
     static let hackatonSavedDetailSegueIdentifier : String = "hackatonSavedDetail"
     static let sharedDetailTableViewController1: String = "shared1"
     static let sharedDetailTableViewController2: String = "shared2"
-    
-    
-    
 }

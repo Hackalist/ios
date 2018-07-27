@@ -19,7 +19,6 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDelegate, 
         self.yearPicker.delegate = self
         self.yearPicker.dataSource = self
         tableView.isScrollEnabled = false
-        updateDateViews()
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,11 +26,24 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDelegate, 
         // Dispose of any resources that can be recreated.
     }
 
+    //MARK: When view appears, it has some data already.
+    override func viewWillAppear(_ animated: Bool) {
+        if let savedDates = DateStruct.loadFromFile() {
+            self.savedDate = savedDates
+            updateDateViews()
+        } else {
+            monthLabel.text = DateTon.sharedDate.getTheMonthString()
+            yearLabel.text = savedDate.year
+        }
+    }
     
-  
     
     
-    //MARK: Outlets
+    
+    
+    
+    
+    //MARK: Outlets.
     
     @IBOutlet weak var monthPicker: UIPickerView!
     @IBOutlet weak var yearPicker: UIPickerView!
@@ -43,25 +55,60 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDelegate, 
     
     
     
+    //MARK: Initial data.
+    var monthPickerData : [String] = ["January",
+                                      "February",
+                                      "March",
+                                      "April",
+                                      "May",
+                                      "June",
+                                      "July",
+                                      "August",
+                                      "September",
+                                      "October",
+                                      "November",
+                                      "December"]
     
-    var monthPickerData : [String] = ["December", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November"]
-    var yearPickerData : [String] = ["2014","2015","2016","2017","2018","2019"]
+    
+    
+    //MARK: For future I should rewrite this to query the available years from the API.
+    var yearPickerData : [String] = ["2014",
+                                     "2015",
+                                     "2016",
+                                     "2017",
+                                     "2018",
+                                     "2019"]
+
     
     
     
+    //MARK: Initial data.
+    var savedDate: DateStruct = DateStruct.init(month: String(DateTon.sharedDate.getTheMonth()), year: String(DateTon.sharedDate.getTheYear()))
     
-    //MARK: Update views
+    
+    
+    //MARK: Get the current date/year to be shown in the datepicker
     func updateDateViews() {
         
-        // get the current date/year to be shown in the datepicker
-        
-        
-        
-        
-        
-        
-        
+        let yearIndex = yearPickerData.index { (currentYear) -> Bool in
+            currentYear == self.savedDate.year
+            
+        }
+        let monthNumber = Int(savedDate.month)
+        monthLabel.text = monthPickerData[monthNumber! - 1 ]
+        yearLabel.text = yearPickerData[yearIndex!]
     }
+    
+
+    
+    
+    func saveTheDate() {
+        DateStruct.saveToFile(list: savedDate)
+    }
+    
+    
+    
+    
     
     
     
@@ -105,14 +152,23 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDelegate, 
         switch pickerView {
         case monthPicker:
             monthLabel.text = monthPickerData[row]
-            print("Selected month number \(row)")
+            savedDate.month = String(row+1) //API returns data starting from number 1, arrays start from 0.
+            saveTheDate()
+            print("This is the savedDate month: \(savedDate.month) and \(monthPickerData[row])")
         case yearPicker:
             yearLabel.text = yearPickerData[row]
-            print("Selected year number \(row)")
+            savedDate.year = yearPickerData[row]
+            saveTheDate()
+
         default:
             break
         }
     }
+    
+    
+    
+    
+    
     
     
     
@@ -171,6 +227,8 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDelegate, 
      2.The other date picker is shown, you'll hide it and show the selected date picker.
      3.Neither date picker is shown, you will show the selected datePicker
      */
+    
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
@@ -227,6 +285,12 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDelegate, 
         guard let submitURL = URL(string: "https://github.com/Hackalist/Hackalist.github.io") else { return }
         UIApplication.shared.openURL(submitURL)
     }
+    
+    
+    
+    
+    
+    
     
     
     

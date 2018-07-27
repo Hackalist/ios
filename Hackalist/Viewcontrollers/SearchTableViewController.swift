@@ -17,64 +17,58 @@ class SearchTableViewController: UITableViewController { //GADBannerViewDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-       
-/*
-        //here goes the network method, which will use the singleton to get the current month/year and pass this to the request. The output will populate the tableview.
-        //a button in profile view will offer the possibility to change the search to all possible hackatons, not only the current one.
-         
-   */
-        
-        
-        
-        //MARK: Navigation controller colors.
-      //  navigationController?.navigationBar.barTintColor = UIColor(red: 230/255, green: 255/255, blue: 255/255, alpha: 0.1)
-        
-        
-        
+        SVProgressHUD.show()
         //MARK: TableView settings
         self.tableView.estimatedRowHeight = 190
         self.tableView.rowHeight = UITableViewAutomaticDimension
 
         
+        //MARK: Load the date saved.
+        if let loadedDate = DateStruct.loadFromFile() {
+            self.savedDate = loadedDate
+        } else {
+            print("Nothing saved yet")
+        }
         
-
         
-        //MARK: Network req & little touch on UI.
-        SVProgressHUD.show()
+        //MARK: Network req.
         networkRequest()
-        //showHackatonsForCurrentYear()
+
         tableView.isHidden = true
-        SVProgressHUD.dismiss(withDelay: 1.0)
+        SVProgressHUD.show()
         tableView.isHidden = false
+        SVProgressHUD.dismiss(withDelay: 1.0)
         
         //MARK: Setup refreshControl.
         setupRefreshControl()
-        
-        //MARK: SetupAds
-       // setupAds()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        networkRequest()
-       // showHackatonsForCurrentYear()
         
         //MARK: Quick fix, "just in case"
         if refreshControl?.isRefreshing == true {
             refreshControl?.endRefreshing()
         }
+        
+        //MARK: Load the dates saved available globally.
+        if let loadedDate = DateStruct.loadFromFile() {
+            self.savedDate = loadedDate
+        }
+        
+        //MARK: Network req & little touch on UI.
+        monthString.removeAll()
+        monthListing.removeAll()
+        networkRequest()
+        tableView.reloadData()
+        
     /*
      //fixes bug with refreshControl freezing while switching tabs
      if tableView.contentOffset.y < 0 {
      tableView.contentOffset = .zero
      } */
     }
+    
 
     
     override func didReceiveMemoryWarning() {
@@ -90,11 +84,8 @@ class SearchTableViewController: UITableViewController { //GADBannerViewDelegate
     var monthString =  [String]()
     
     
-    //MARK: Time Variables.
-    
-    let month = String(DateTon.sharedDate.getTheMonth())
-    let year = String(DateTon.sharedDate.getTheYear())
-    
+    //MARK: Time variable..
+    var savedDate: DateStruct = DateStruct.init(month: String(DateTon.sharedDate.getTheMonth()), year: String(DateTon.sharedDate.getTheYear()))
     
     
     
@@ -106,6 +97,8 @@ class SearchTableViewController: UITableViewController { //GADBannerViewDelegate
             self.tableView.reloadData()
         }
     }
+    
+    
     
     
     
@@ -127,7 +120,7 @@ class SearchTableViewController: UITableViewController { //GADBannerViewDelegate
     
     //MARK: Networking request.
      func networkRequest() {
-        NetworkController.shared.fetchHackatonListForOurTime(year: self.year, month: self.month) { (month, monthString, error) in
+        NetworkController.shared.fetchHackatonListForOurTime(year: (self.savedDate.year), month: (self.savedDate.month)) { (month, monthString, error) in
             if let listingInfo = month, let monthString = monthString {
                 self.updateUI(with: listingInfo)
                 self.monthString = monthString
@@ -204,12 +197,6 @@ class SearchTableViewController: UITableViewController { //GADBannerViewDelegate
                     currentIndexPath != indexPath { //MARK: if the indexpath is changed, skip setting the image.
                     return
                 }
-                
-                
-                /*
-                cell.hackatonImage?.layer.cornerRadius = (cell.hackatonImage?.frame.size.width)! / 2
-                cell.hackatonImage?.layer.masksToBounds = true
-                */
                 
                 cell.hackatonImage?.image = image
             }
@@ -354,7 +341,7 @@ class SearchTableViewController: UITableViewController { //GADBannerViewDelegate
         switch section {
         case 0:
             //  return "\(DateTon.sharedDate.getTheMonthString()) Hackatons"
-            return "\(monthString[0]) Hackatons"
+            return "\(monthString[0]) Hackatons for \(savedDate.year.capitalized)"
         case 1:
             return "\(monthString[1]) Hackatons"
         case 2:

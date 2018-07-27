@@ -20,22 +20,7 @@ class NetworkController {
     //MARK: Base URL     base url with sample req : /2018/07.json
     let baseURL = URL(string: "https://raw.githubusercontent.com/Hackalist/Hackalist.github.io/master/api/1.0")!
     
-    
-    
-    
-    
-    /*
-    //I think I need only one method, which will parse all the months available for the current year thus the handling of which ones should be shown would be left
-     on the viewcontroller and display all available hackatons(depends on the filter settings), setting the user
-     to see the current, most nearest date for the available hackaton. The logic for the network will be written here, and the date and other stuff would be
-     sent from the viewcontroller. Since the date should be available everywhere, I guess I will write it in a model, as a singleton.
- */
-    
-    
-   
-    
-    
-    //MARK: Getting the current year/month data to be parsed. Note that we have two values to be passed in. (current month/date).
+    //MARK: Getting the current year/month data to be parsed.
     
     func fetchHackatonListForOurTime(year: String, month: String, completion: @escaping ([Hackaton]?,[String]?, Error? ) -> Void ) {  
         

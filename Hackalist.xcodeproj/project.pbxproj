@@ -10,6 +10,7 @@
 		040B3E8B2101F2AA002FFF08 /* SharedDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B3E8A2101F2A9002FFF08 /* SharedDetailTableViewController.swift */; };
 		0428C91720FF5D8300617515 /* SavedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428C91620FF5D8300617515 /* SavedTableViewCell.swift */; };
 		0454B1EF2109A527001B6464 /* VersionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0454B1EE2109A527001B6464 /* VersionViewController.swift */; };
+		0468A658210B34FC0086E0F8 /* DateStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0468A657210B34FC0086E0F8 /* DateStruct.swift */; };
 		04A653E92101E3D5009E84AF /* extensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A653E82101E3D5009E84AF /* extensionUIView.swift */; };
 		04AC3D9620FF17B900142FCB /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AC3D9520FF17B900142FCB /* SearchTableViewCell.swift */; };
 		04BED0DD21089C2600FB6E00 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BED0DC21089C2600FB6E00 /* SettingsTableViewController.swift */; };
@@ -36,6 +37,7 @@
 		040B3E8A2101F2A9002FFF08 /* SharedDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDetailTableViewController.swift; sourceTree = "<group>"; };
 		0428C91620FF5D8300617515 /* SavedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewCell.swift; sourceTree = "<group>"; };
 		0454B1EE2109A527001B6464 /* VersionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionViewController.swift; sourceTree = "<group>"; };
+		0468A657210B34FC0086E0F8 /* DateStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateStruct.swift; sourceTree = "<group>"; };
 		04A653E82101E3D5009E84AF /* extensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIView.swift; sourceTree = "<group>"; };
 		04AC3D9520FF17B900142FCB /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		04BED0DC21089C2600FB6E00 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			children = (
 				E2F840B620DCF6E200423D88 /* Listing.swift */,
 				E228AC3C20DE517D0004BBA8 /* DateTon.swift */,
+				0468A657210B34FC0086E0F8 /* DateStruct.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				04A653E92101E3D5009E84AF /* extensionUIView.swift in Sources */,
 				04AC3D9620FF17B900142FCB /* SearchTableViewCell.swift in Sources */,
 				0454B1EF2109A527001B6464 /* VersionViewController.swift in Sources */,
+				0468A658210B34FC0086E0F8 /* DateStruct.swift in Sources */,
 				E2F840BA20DD057E00423D88 /* SearchTableViewController.swift in Sources */,
 				E2F840BC20DD05A200423D88 /* SavedTableViewController.swift in Sources */,
 			);

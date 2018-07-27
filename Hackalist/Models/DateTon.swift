@@ -19,7 +19,7 @@ class DateTon {
     //MARK: shared instance
     static let sharedDate = DateTon()
     
-    
+
     //MARK: Our date.
     let now = Date()
     //MARK: Calendar instance we will operate with.
@@ -45,7 +45,6 @@ class DateTon {
         dateFormatter.dateFormat = "LLLL"
         return dateFormatter.string(from: now)
     }
-    
     
     
     

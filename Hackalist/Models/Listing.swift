@@ -10,19 +10,6 @@
 
 import Foundation
 
-// To parse the JSON, add this file to your project and do:
-//
-//   let listing = try Listing(json)
-//
-// To read values from URLs:
-//
-//   let task = URLSession.shared.listingTask(with: url) { listing, response, error in
-//     if let listing = listing {
-//       ...
-//     }
-//   }
-//   task.resume()
-
 struct Listing: Codable {
     
     let months: [Hackaton]
@@ -159,7 +146,8 @@ extension URLSession {
 
 
 
-//MARK: Saving data to the disk. This data is not sensitive.
+//MARK: Saving data to the disk. This data is not sensitive so it is ok to save it as plist.
+
 extension Hackaton {
     
 
