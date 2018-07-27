@@ -7,18 +7,19 @@
 //
 
 import UIKit
-import StoreKit
 
-class SettingsTableViewController: UITableViewController {
+class SettingsTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        self.monthPicker.delegate = self
+        self.monthPicker.dataSource = self
+        
+        self.yearPicker.delegate = self
+        self.yearPicker.dataSource = self
+        tableView.isScrollEnabled = false
+        updateDateViews()
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,130 +28,227 @@ class SettingsTableViewController: UITableViewController {
     }
 
     
+  
     
-    //MARK:
     
-    override func viewDidAppear(_ animated: Bool) {
-        showReviewKit()
+    //MARK: Outlets
+    
+    @IBOutlet weak var monthPicker: UIPickerView!
+    @IBOutlet weak var yearPicker: UIPickerView!
+    
+    
+    @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var yearLabel: UILabel!
+    
+    
+    
+    
+    
+    var monthPickerData : [String] = ["December", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November"]
+    var yearPickerData : [String] = ["2014","2015","2016","2017","2018","2019"]
+    
+    
+    
+    
+    //MARK: Update views
+    func updateDateViews() {
+        
+        // get the current date/year to be shown in the datepicker
+        
+        
+        
+        
+        
+        
+        
     }
     
     
     
-    //MARK: ShowReview Kit.
     
-    func showReviewKit() {
-        let launchCount: Int = UserDefaults.standard.integer(forKey: "launchCount")
-        //print("App was launched :\(launchCount) times")
-        
-        
-        if #available(iOS 10.3, *) {
-            if (launchCount == 3 || launchCount == 10 || launchCount == 50) {
-                SKStoreReviewController.requestReview()
+    
+    //MARK: Picker view delegates
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        switch  pickerView {
+        case monthPicker:
+            return monthPickerData.count
+        case yearPicker:
+            return yearPickerData.count
+        default:
+            return 0
+        }
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        switch pickerView {
+        case monthPicker:
+            return monthPickerData[row]
+        case yearPicker:
+            return yearPickerData[row]
+        default:
+            return "Err"
+        }
+    }
+    
+    
+    
+    
+    //MARK: Capture the selection
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch pickerView {
+        case monthPicker:
+            monthLabel.text = monthPickerData[row]
+            print("Selected month number \(row)")
+        case yearPicker:
+            yearLabel.text = yearPickerData[row]
+            print("Selected year number \(row)")
+        default:
+            break
+        }
+    }
+    
+    
+    
+    
+    let submitCellIndexPath = IndexPath(row: 0, section: 1)
+    
+    //MARK: Logic for adjusting cell heights
+    
+    let monthDatePickerCellIndexPath = IndexPath(row: 1, section: 0)
+    let yearDatePickerCellIndexPath = IndexPath(row: 3, section: 0)
+    
+    
+    
+  
+    
+    var isMonthPickerShown: Bool = false {
+        didSet {
+            monthPicker.isHidden = !isMonthPickerShown
+        }
+    }
+    
+    var isYearPickerShown: Bool = false {
+        didSet {
+            yearPicker.isHidden = !isYearPickerShown
+        }
+    }
+    
+    
+    
+    
+    //MARK: Toggle the picker view.
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch (indexPath.section, indexPath.row) {
+        case (monthDatePickerCellIndexPath.section, monthDatePickerCellIndexPath.row):
+            if isMonthPickerShown {
+                return 216.0
+            } else {
+                return 0.0
             }
-        } else {
-            // Fallback on earlier versions, ios 9.
-            if (launchCount == 3 || launchCount == 10 || launchCount == 50) {
-                let alert = UIAlertController(title: "Enjoying Hackalist?", message: "Would you consider reviewing this App? It really makes a difference! If not, perhaps you'd like to send me a suggestion to improve it instead?", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Review App", style: .destructive, handler: { (action) in
-                    // do something here, send him to the itunes webpage.
-                }))
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                present(alert, animated: true, completion: nil)
+        case (yearDatePickerCellIndexPath.section, yearDatePickerCellIndexPath.row):
+            if isYearPickerShown {
+                return 216.0
+            } else {
+                return 0.0
             }
+        default:
+            return 44.0
+        }
+    }
+    
+    
+    
+    
+    /* MARK: Explanation:
+     1.The date picker corresponding to the cell is already shown, your response is to hide it.
+     2.The other date picker is shown, you'll hide it and show the selected date picker.
+     3.Neither date picker is shown, you will show the selected datePicker
+     */
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        switch (indexPath.section, indexPath.row) {
+        case (monthDatePickerCellIndexPath.section, monthDatePickerCellIndexPath.row - 1): //minus one, as the click goes on the previous cell anyway.
+            if isMonthPickerShown {
+                isMonthPickerShown = false
+            } else if isYearPickerShown {
+                isMonthPickerShown = true
+                isYearPickerShown = false
+            } else {
+                isMonthPickerShown = true
+            }
+            
+            tableView.beginUpdates()
+            tableView.endUpdates()
+            
+        case (yearDatePickerCellIndexPath.section, yearDatePickerCellIndexPath.row - 1):
+            if isYearPickerShown {
+                isYearPickerShown = false
+            } else if isMonthPickerShown {
+                isMonthPickerShown = false
+                isYearPickerShown = true
+            } else {
+                isYearPickerShown = true
+            }
+            
+            tableView.beginUpdates()
+            tableView.endUpdates()
+            
+            
+            
+        case (submitCellIndexPath.section, submitCellIndexPath.row):
+            
+            if isMonthPickerShown == false && isYearPickerShown == false {
+                submit()
+            }
+            
+            tableView.beginUpdates()
+            tableView.endUpdates()
+            
+        default:
+            break
         }
         
     }
     
     
     
+    //MARK: Submit my own hackaton:
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /*
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    func submit() {
+        guard let submitURL = URL(string: "https://github.com/Hackalist/Hackalist.github.io") else { return }
+        UIApplication.shared.openURL(submitURL)
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-*/
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+    
+    
+    
+    
+    
 
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

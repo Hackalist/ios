@@ -37,7 +37,7 @@ class NetworkController {
     
     //MARK: Getting the current year/month data to be parsed. Note that we have two values to be passed in. (current month/date).
     
-    func fetchHackatonListForOurTime(year: String, month: String, completion: @escaping ([Hackaton]?,[String]?, Error? ) -> Void ) {  // should change the july shit here, for any month.
+    func fetchHackatonListForOurTime(year: String, month: String, completion: @escaping ([Hackaton]?,[String]?, Error? ) -> Void ) {  
         
         guard let initialListingURL = baseURL.appendingPathComponent(year + "/" + "0" + month + ".json").withHTTPS() else {
             completion(nil, nil, nil)
