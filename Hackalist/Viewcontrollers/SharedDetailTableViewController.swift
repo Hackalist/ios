@@ -205,7 +205,7 @@ class SharedDetailTableViewController: UITableViewController {
         dateLabel.text = hackaton.startDate + " - " + hackaton.endDate
         yearLabel.text = hackaton.year
         lengthLabel.text = hackaton.length + " days"
-        notesLabel.text = hackaton.notes.capitalized
+        notesLabel.text = hackaton.notes
         prizeLabel.text = hackaton.prize.capitalized
         costLabel.text = hackaton.cost.capitalized
         travelLabel.text = hackaton.travel.capitalized

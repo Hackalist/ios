@@ -36,6 +36,7 @@ class SettingsViewController: UIViewController {
                 SKStoreReviewController.requestReview()
             }
         } else {
+            /*
             // Fallback on earlier versions of ios.
             if (launchCount == 3 || launchCount == 10 || launchCount == 50) {
                 let alert = UIAlertController(title: "Enjoying Hackalist?", message: "Would you consider reviewing this App? It really makes a difference! If not, perhaps you'd like to send me a suggestion to improve it instead?", preferredStyle: UIAlertControllerStyle.alert)
@@ -46,7 +47,9 @@ class SettingsViewController: UIViewController {
                 }))
                 alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
                 present(alert, animated: true, completion: nil)
-            }
+                
+                
+            } */
         }
         
     }
