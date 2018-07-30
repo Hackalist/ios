@@ -10,7 +10,10 @@ import UIKit
 import SVProgressHUD
 //import GoogleMobileAds
 
-//MARK: Note: Should change the logic of holding the hackatons into a dictionary.
+
+
+
+
 
 
 class SearchTableViewController: UITableViewController { //GADBannerViewDelegate
@@ -69,6 +72,8 @@ class SearchTableViewController: UITableViewController { //GADBannerViewDelegate
      } */
     }
     
+    
+    
 
     
     override func didReceiveMemoryWarning() {
@@ -92,9 +97,11 @@ class SearchTableViewController: UITableViewController { //GADBannerViewDelegate
     //MARK: UpdateUI
     
     func updateUI(with month: [Hackaton]) {
+        
         DispatchQueue.main.async {
             self.monthListing = month
             self.tableView.reloadData()
+
         }
     }
     
@@ -105,7 +112,7 @@ class SearchTableViewController: UITableViewController { //GADBannerViewDelegate
     
     //MARK: Error handling.
     func errorHelper() {
-        let errorAlert = UIAlertController(title: "Error", message: "Apologies, something went wrong, please try again later...", preferredStyle: .alert)
+        let errorAlert = UIAlertController(title: "Error", message: "Apologies, something went wrong. Please check your connection, or try another dates...", preferredStyle: .alert)
         errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(errorAlert, animated: true) {
             self.networkRequest()
@@ -124,14 +131,12 @@ class SearchTableViewController: UITableViewController { //GADBannerViewDelegate
             if let listingInfo = month, let monthString = monthString {
                 self.updateUI(with: listingInfo)
                 self.monthString = monthString
-              //  print("Here is the listingInfo : \(listingInfo)")
             } else {
-                if let _ = error {
-                    self.errorHelper()
-                }
+                self.errorHelper()
             }
         }
     }
+    
     
     
     
@@ -145,8 +150,6 @@ class SearchTableViewController: UITableViewController { //GADBannerViewDelegate
     }
     
 
-    
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return monthListing.count
     }
@@ -267,97 +270,20 @@ class SearchTableViewController: UITableViewController { //GADBannerViewDelegate
     
     
     
-    
-    
-    
-    
-    
-    // MARK: Should get this via a network req.
-    // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return monthString.count //return the number of months
     }
     
     
   
     
-    
-    
-    
-    
-
-    
-    
-    
-    
-    /*
-    
-    //MARK: Test code. Showing the hackatons for the whole year.
-    
-    //MARK : I should change the logic for this. It doesn't group anyhow the hackatons. I guess the right way would be to use a dictionary.
-    
-    
-    
-    
- 
-    
-    var wholeYearHackatons =  [ String : [Hackaton] ]()
-    
-    
-    
-    //MARK: wrong implementation.
-    func showHackatonsForCurrentYear() {
-        //MARK: MonthValues.
-        let monthValues = [1,2,3,4,5,6,7,8,9,10,11,12]
-        
-    
-        
-        //MARK: Parse the responses for the whole year.
-        for allMonths in monthValues {
-            NetworkController.shared.fetchHackatonListForOurTime(year: self.year, month: String(allMonths)) { (month, monthString, err) in
-                if let listingInfo = month, let monthString = monthString {
-                    
-                    DispatchQueue.main.async {
-                        self.wholeYearHackatons.updateValue(listingInfo, forKey: monthString[0] ) // something is wrong with the 0 here.
-                        print("Whole year hackatons : \(self.wholeYearHackatons)")
-                     //   self.tableView.reloadData()
-                    }
-                    
-                } else {
-                    if let _ = err {
-                        self.errorHelper()
-                    }
-                }
-            }
-        }
-    }
-    
-     
-     */
-    
-    //MARK: Name of the month in section. Should be changed to check for each dictionary key.
+    //MARK: Name of the month in section. Would have to be changed in case if all hackatons viewed in the same search result.
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            //  return "\(DateTon.sharedDate.getTheMonthString()) Hackatons"
             return "\(monthString[0]) Hackatons for \(savedDate.year.capitalized)"
-        case 1:
-            return "\(monthString[1]) Hackatons"
-        case 2:
-            return "\(monthString[2]) Hackatons" //etc...
-        case 3:
-            return "\(monthString[3]) Hackatons"
-        case 4:
-            return "\(monthString[4]) Hackatons"
-        case 5:
-            return "\(monthString[5]) Hackatons"
-        case 6:
-            return "\(monthString[6]) Hackatons"
-        case 7:
-            return "\(monthString[7]) Hackatons"
         default:
-            return "End"
+            return "\(monthString[0]) Hackatons for \(savedDate.year.capitalized)"
         }
         
     }

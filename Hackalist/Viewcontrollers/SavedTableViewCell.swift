@@ -28,5 +28,12 @@ class SavedTableViewCell: UITableViewCell {
     @IBOutlet weak var hackatonTitle: UILabel!
     @IBOutlet weak var hackatonDate: UILabel!
     
+    //MARK: Cell re-usage.
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        hackatonImage.image = UIImage(named: "launch")
+    }
+    
+    
     
 }
