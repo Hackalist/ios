@@ -28,6 +28,7 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDelegate, 
 
     //MARK: When view appears, it has some data already.
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         if let savedDates = DateStruct.loadFromFile() {
             self.savedDate = savedDates
             updateDateViews()

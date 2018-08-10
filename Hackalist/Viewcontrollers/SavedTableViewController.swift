@@ -43,6 +43,7 @@ class SavedTableViewController: UITableViewController, AddToSavedHackatonsDelega
     
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         updateUI()
        // print("Hackaton list for savedVC: \(hackatonList)")
     }

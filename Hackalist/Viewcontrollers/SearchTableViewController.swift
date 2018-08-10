@@ -48,7 +48,7 @@ class SearchTableViewController: UITableViewController { //GADBannerViewDelegate
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        super.viewWillAppear(true)
         //MARK: Quick fix, "just in case"
         if refreshControl?.isRefreshing == true {
             refreshControl?.endRefreshing()
