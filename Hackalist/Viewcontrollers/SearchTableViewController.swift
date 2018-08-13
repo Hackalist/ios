@@ -87,6 +87,9 @@ class SearchTableViewController: UITableViewController {
     var savedDate: DateStruct = DateStruct.init(month: String(DateTon.sharedDate.getTheMonth()), year: String(DateTon.sharedDate.getTheYear()))
     
     
+    //MARK: DispatchQueue. Solves the dataRace for monthString.
+    var queue = DispatchQueue(label: "com.monthString.queue")
+    
     
     //MARK: UpdateUI
     
@@ -121,14 +124,16 @@ class SearchTableViewController: UITableViewController {
     
     //MARK: Networking request.
      func networkRequest() {
-        NetworkController.shared.fetchHackatonListForOurTime(year: (self.savedDate.year), month: (self.savedDate.month)) { (month, monthString, error) in
-            if let listingInfo = month, let monthString = monthString {
-                self.updateUI(with: listingInfo)
-                self.monthString = monthString
-            } else {
-                self.errorHelper()
+            NetworkController.shared.fetchHackatonListForOurTime(year: (self.savedDate.year), month: (self.savedDate.month)) { (month, monthString, error) in
+                if let listingInfo = month, let monthString = monthString {
+                    self.queue.async { //async as we need to wait for it to complete the task. in contrast with elf.queue.sync { monthString.count } which can wait.
+                        self.updateUI(with: listingInfo)
+                        self.monthString = monthString
+                    }
+                } else {
+                    self.errorHelper()
+                }
             }
-        }
     }
     
     
@@ -258,7 +263,7 @@ class SearchTableViewController: UITableViewController {
     
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return monthString.count //return the number of months
+       return self.queue.sync { monthString.count }
     }
     
     

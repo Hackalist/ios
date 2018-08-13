@@ -69,4 +69,4 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 
 #Firebase
-#Hackalist/GoogleService-Info.plist
+Hackalist/GoogleService-Info.plist
