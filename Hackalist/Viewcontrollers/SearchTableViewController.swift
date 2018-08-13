@@ -8,15 +8,9 @@
 
 import UIKit
 import SVProgressHUD
-//import GoogleMobileAds
 
 
-
-
-
-
-
-class SearchTableViewController: UITableViewController { //GADBannerViewDelegate
+class SearchTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -182,7 +176,7 @@ class SearchTableViewController: UITableViewController { //GADBannerViewDelegate
         
         //MARK: Image configuration:
         //configure some image here as well..
-        //most probably favicon of the website of the hackaton.
+        //most probably image of the website of the hackaton.
         let baseURL =  URL(string: "https://logo.clearbit.com/") //API.
         let imageURL = listingItem.url
         
@@ -232,14 +226,7 @@ class SearchTableViewController: UITableViewController { //GADBannerViewDelegate
     
     
     //MARK: Pull to refresh implementation.
-
     
-    //private let pullToRefresh = UIRefreshControl()
-    
-    
-    
-    
-    //MARK: Setup refresh control.
     func setupRefreshControl() {
         if #available(iOS 10.0, *) {
             tableView.refreshControl = pullToRefreshControl
@@ -252,7 +239,7 @@ class SearchTableViewController: UITableViewController { //GADBannerViewDelegate
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         self.networkRequest()
         
-        //MARK: People like to wait..
+        //people like to wait..
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             refreshControl.endRefreshing()
         }
@@ -294,54 +281,7 @@ class SearchTableViewController: UITableViewController { //GADBannerViewDelegate
 
     
 
-    
-    
-    /*
-    
-    
-    //MARK: Ads implementation.
-    
-    
-    var bannerView: GADBannerView!
-    
-    
-    func setupAds() {
-        //MARK: Google ads.
-        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
-        bannerView.adUnitID = "ca-app-pub-4165361134979510/5487918601"
-        bannerView.rootViewController = self
-        bannerView.delegate = self
-        bannerView.load(GADRequest())
-        
-    }
-    
-    
-    
-    //MARK: AdMob delegates.
-    
-    
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        tableView.tableFooterView?.frame = bannerView.frame
-        tableView.tableFooterView = bannerView
-        //print("Banner loaded succesfully")
-    }
-    
-    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
-        print("Fail to receive ads: \(error)")
-    }
-    
-    */
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-    
+  
     
     
     

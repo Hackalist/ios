@@ -17,8 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
         //MARK: Setting up the cache.
         let temporaryDirectory = NSTemporaryDirectory()
         let urlCache = URLCache(memoryCapacity: 25000000, diskCapacity: 50000000, diskPath: temporaryDirectory)
@@ -35,9 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Firebase.
         FirebaseApp.configure()
-        
-        //AdMob
-      //  GADMobileAds.configure(withApplicationID: "ca-app-pub-4165361134979510~1352414237")
         return true
     }
 

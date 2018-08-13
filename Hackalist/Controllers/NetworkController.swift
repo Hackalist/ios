@@ -12,9 +12,6 @@ import UIKit
 
 class NetworkController {
     
-    
-    
-    
     static let shared = NetworkController()
     
     //MARK: Base URL     base url with sample req : /2018/07.json

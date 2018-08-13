@@ -15,7 +15,6 @@ class DetailViewController: UIViewController {
 
         // MARK: Set up the title. Do not forget to fix the issue for longer titles as well.
         title = titleName?.capitalized
-       // print("Here is the hackaton : \(hackaton)") //it works.
         setupDelegate()
     }
 
