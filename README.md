@@ -1,8 +1,9 @@
-# Hackalist
-iOS based mainly on  https://github.com/Hackalist/Hackalist.github.io/ API. 
+# Hackalist iOS App
 
-appstore: https://itunes.apple.com/us/app/hackalist/id1414244729?ls=1&mt=8
+iOS app based mainly on  [Hackalist](https://github.com/Hackalist/Hackalist.github.io/) API. 
 
-contributions are welcome. Any kind of them :) 
+App Store: https://itunes.apple.com/us/app/hackalist/id1414244729?ls=1&mt=8
 
-More info will be provided soon.
+Any contributions are welcome. :) 
+
+More info and documentation will be provided soon.
