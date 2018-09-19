@@ -18,7 +18,7 @@ class SearchTableViewController: UITableViewController {
         SVProgressHUD.show()
         //MARK: TableView settings
         self.tableView.estimatedRowHeight = 190
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
 
         
         //MARK: Load the date saved.
@@ -141,11 +141,11 @@ class SearchTableViewController: UITableViewController {
     
     //MARK: Tableview row height Setup.
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension //250.0
+        return UITableView.automaticDimension //250.0
     }
     
 
@@ -254,7 +254,7 @@ class SearchTableViewController: UITableViewController {
     
     private var pullToRefreshControl: UIRefreshControl? {
         let pullToRefresh = UIRefreshControl()
-        pullToRefresh.addTarget(self, action: #selector(SearchTableViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
+        pullToRefresh.addTarget(self, action: #selector(SearchTableViewController.handleRefresh(_:)), for: UIControl.Event.valueChanged)
         pullToRefresh.tintColor = .orange
         
         return pullToRefresh

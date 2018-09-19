@@ -31,7 +31,7 @@ class SharedDetailTableViewController: UITableViewController {
         
         //MARK: Row height.
         tableView.estimatedRowHeight = 44.0
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         
     }
 
@@ -217,11 +217,11 @@ class SharedDetailTableViewController: UITableViewController {
     
     //MARK: Tableview Setup.
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
     
     

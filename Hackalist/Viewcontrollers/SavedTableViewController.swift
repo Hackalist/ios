@@ -21,7 +21,7 @@ class SavedTableViewController: UITableViewController, AddToSavedHackatonsDelega
         super.viewDidLoad()
 
         
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 80
         
         
@@ -163,7 +163,7 @@ class SavedTableViewController: UITableViewController, AddToSavedHackatonsDelega
     }
     
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             hackatonList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)

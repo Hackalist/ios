@@ -60,7 +60,7 @@ class DetailViewController: UIViewController {
                        delay: 0,
                        usingSpringWithDamping: CGFloat(0.20),
                        initialSpringVelocity: CGFloat(6.0),
-                       options: UIViewAnimationOptions.allowUserInteraction,
+                       options: UIView.AnimationOptions.allowUserInteraction,
                        animations: {
                         sender.transform = CGAffineTransform.identity
         },
