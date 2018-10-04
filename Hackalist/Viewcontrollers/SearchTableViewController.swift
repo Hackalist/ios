@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import Crashlytics
 
 
 class SearchTableViewController: UITableViewController {

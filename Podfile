@@ -17,5 +17,7 @@ target 'Hackalist' do
   pod 'Firebase/Performance'
   pod 'SVProgressHUD'
   #pod 'Kingfisher'
+  pod 'Fabric', '~> 1.7.11'
+  pod 'Crashlytics', '~> 3.10.7'
 
 end
