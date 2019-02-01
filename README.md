@@ -5,5 +5,3 @@ iOS app based mainly on  [Hackalist](https://github.com/Hackalist/Hackalist.gith
 App Store: https://itunes.apple.com/us/app/hackalist/id1414244729?ls=1&mt=8
 
 Any contributions are welcome. :) 
-
-More info and documentation will be provided soon.
